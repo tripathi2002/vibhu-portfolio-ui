@@ -31,3 +31,9 @@ function vibhu_assets() {
 add_action('wp_enqueue_scripts', 'vibhu_portfolio_assets');
 
 add_action('wp_enqueue_scripts', 'vibhu_assets');
+
+require_once get_template_directory() . '/inc/setup.php';
+require_once get_template_directory() . '/inc/assets.php';
+
+require_once get_template_directory() . '/inc/cpt/projects.php';
+require_once get_template_directory() . '/inc/acf/projects-fields.php';
