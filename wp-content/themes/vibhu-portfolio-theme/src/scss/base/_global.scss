@@ -1,0 +1,12 @@
+@use "../abstracts/variables" as *;
+
+body{
+    background-color: $body-bg;
+}
+
+.line {
+    width: 100%;
+    border-radius: 0.2rem;
+    margin: 2rem 0;
+    background-color: $gray-bg;
+}

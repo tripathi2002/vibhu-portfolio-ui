@@ -1,0 +1,17 @@
+@use "../abstracts/variables" as *;
+
+.site-layout{
+    align-items: flex-start;
+}
+
+.sidebar-left{
+    background: $color-surface;
+}
+
+.sidebar-right{
+    background: $color-surface;
+}
+
+.main-content{
+    min-height:100vh;
+}
