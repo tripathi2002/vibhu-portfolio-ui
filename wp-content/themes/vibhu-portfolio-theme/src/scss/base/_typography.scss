@@ -1,0 +1,62 @@
+@use "../utilities/media" as *;
+
+html{font-size: 10px;}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1.6rem;
+    
+}
+
+body{
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+img{
+    height: auto;
+    max-width: 100%;
+}
+
+p,span,a,table,div,article,figcaption{
+    font-size: 1.7rem;
+    // font-weight: $fw300;
+    line-height: 1.4;
+}
+h1,h2,h3,h4,h5,h6{
+    // font-family: $fontFamily-lt-bdcn;
+    line-height: 1.4;
+}
+h1,.h1{
+    font-size: 4.6rem;
+}
+h2,.h2{
+    font-size: 3.5rem;
+}
+h3,.h3{
+    font-size: 3rem;
+}
+h4,.h4{
+    font-size: 2.5rem;
+}
+h5,.h5{
+    font-size: 2.25rem;
+}
+h6,.h6{
+    font-size: 2rem;
+}
+
+p + p{
+    margin-top: 35px;
+    @include max(767){
+        margin-top: 30px;
+    }
+}
+
+p{
+    strong{
+        font-size: inherit;
+    }
+}
