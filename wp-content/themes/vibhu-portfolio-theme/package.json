@@ -1,16 +1,15 @@
 {
   "name": "vibhu-portfolio-theme",
   "version": "1.0.0",
-  "description": "",
   "license": "ISC",
   "author": "vibhu tripathi",
   "type": "commonjs",
-  "main": "index.js",
   "scripts": {
-    "dev": "parcel watch src/js/main.js --dist-dir dist",
-    "build": "parcel build src/js/main.js --dist-dir assets"
+    "dev": "parcel watch ./src/js/main.js --dist-dir ./dist",
+    "build": "parcel build ./src/js/main.js --dist-dir ./assets"
   },
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.16.4",
     "parcel": "^2.16.4",
     "sass": "^1.98.0"
   }
