@@ -7,10 +7,11 @@
             <?php get_template_part('template-parts/sidebar/profile'); ?>
         </aside>
 
-        <main class="col8 main-content">
-            main content
-        </main>
+        <main class="col7 main-content">
 
+            <?php get_template_part('template-parts/sections/hero'); ?>
+
+        </main>
         <aside class="col1 sidebar-right">
             <?php get_template_part('template-parts/header/navigation'); ?>
         </aside>

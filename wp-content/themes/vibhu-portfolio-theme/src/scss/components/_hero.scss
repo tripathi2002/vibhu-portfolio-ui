@@ -1,0 +1,38 @@
+@use "../abstracts/variables" as *;
+
+.hero {
+  background: $color-surface;
+  padding: 0 6rem;
+  padding-top: 9.3rem;
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+      //   margin-bottom: 2rem;
+      width: max-content;
+      span {
+        color: $yellow;
+        font-weight: 1;
+        font-size: 4.2rem;
+      }
+    }
+    p {
+      margin-bottom: 2.5rem;
+      color: $paragraph-font;
+    }
+
+
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}

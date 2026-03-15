@@ -2,23 +2,20 @@
 @use "../utilities/media" as *;
 
 .sidebar-right {
-  position: fixed;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-
-  @include min-max(768, 1024) {
-    right: 0;
-    transform: translateY(-50%);
-    width: 8rem;
-  }
+  // position: fixed;
+  // right: 20px;
+  // top: 50%;
+  // transform: translateY(-50%);
+  // z-index: 10;
 
   @include max(767) {
+    position: fixed;
+    z-index: 10;
     top: 96%;
     right: 0;
     left: 0;
     border-radius: 1rem;
+    transform: translateY(-50%);
   }
 
   .right-navigation {
