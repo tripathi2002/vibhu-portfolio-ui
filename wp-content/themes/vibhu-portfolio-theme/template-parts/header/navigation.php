@@ -24,31 +24,31 @@
 
       <li class="active">
          <a href="#">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/home.svg" alt="Home">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-home.png" alt="Home">
          </a>
       </li>
 
       <li>
          <a href="#">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/services.svg" alt="Services">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-services.png" alt="Services">
          </a>
       </li>
 
       <li>
          <a href="#">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/portfolio.svg" alt="Portfolio">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-portfolio.png" alt="Portfolio">
          </a>
       </li>
 
       <li>
          <a href="#">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/blog.svg" alt="Blog">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-blog.png" alt="Blog">
          </a>
       </li>
 
       <li>
          <a href="#">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/contact.svg" alt="Contact">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-contact.png" alt="Contact">
          </a>
       </li>
 

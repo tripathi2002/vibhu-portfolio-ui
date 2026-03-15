@@ -1,0 +1,78 @@
+@use "../abstracts/variables" as *;
+@use "../utilities/media" as *;
+
+.sidebar-right {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  @include min-max(768, 1024) {
+    right: 0;
+    transform: translateY(-50%);
+    width: 8rem;
+  }
+
+  @include max(767) {
+    top: 96%;
+    right: 0;
+    left: 0;
+    border-radius: 1rem;
+  }
+
+  .right-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include min(768) {
+      height: 100vh;
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+
+      @include max(767) {
+        flex-direction: row;
+      }
+
+      li {
+        margin-bottom: 2rem;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 4rem;
+          height: 4rem;
+          background: $color-surface;
+          border-radius: 50%;
+
+          &:hover {
+            background: $yellow;
+          }
+
+          @include max(767) {
+            width: 4.5rem;
+            height: 4.5rem;
+            background: $color-surface;
+            border-radius: 50%;
+          }
+
+          img {
+            width: 1.8rem;
+          }
+        }
+      }
+
+      .active {
+        background: $yellow;
+      }
+    }
+  }
+}
