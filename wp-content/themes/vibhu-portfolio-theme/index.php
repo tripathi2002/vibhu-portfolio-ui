@@ -11,6 +11,7 @@
 
             <?php get_template_part('template-parts/sections/hero'); ?>
             <?php get_template_part('template-parts/sections/services'); ?>
+            <?php get_template_part('template-parts/sections/education'); ?>
 
         </main>
         <aside class="col1 sidebar-right">
