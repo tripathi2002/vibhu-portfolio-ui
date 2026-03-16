@@ -1,0 +1,37 @@
+@use "../abstracts/variables" as *;
+
+.work-history {
+  margin: 5rem 0;
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .work-list {
+    background: $color-surface;
+
+    .work-item {
+      display: flex;
+      padding: 3rem;
+      border-bottom: 0.1rem solid $gray-bg;
+
+      .work-left {
+        width: 40%;
+
+        .work-meta {
+          font-size: 1.4rem;
+          color: #777;
+        }
+      }
+
+      .work-right {
+        width: 60%;
+
+        h4 {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
