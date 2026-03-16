@@ -30,7 +30,7 @@
                 </button>
             </div>
             <div class="col6 hero-image">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/your_image_2.png" alt="Hero">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/profile" alt="">
             </div>
         </div>
     </div>

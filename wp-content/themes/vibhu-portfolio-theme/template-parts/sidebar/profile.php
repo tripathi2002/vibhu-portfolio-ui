@@ -3,7 +3,7 @@
         <div class="col">
             <div class="profile-sidebar">
                 <div class="profile-image">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/profile.png" alt="">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/your_image_2.png" alt="">
                 </div>
 
                 <h2 class="profile-name">Vibhu Tripathi</h2>
