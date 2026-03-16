@@ -22,9 +22,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 5rem 0;
+    position: sticky;
+    top: calc(100vh - 70%);
 
     @include min(768) {
-      height: 100vh;
+      // height: 100vh;
     }
 
     .nav-menu {

@@ -1,17 +1,20 @@
 @use "../abstracts/variables" as *;
 
 .site-layout{
+    min-height: 100vh;
     align-items: flex-start;
 }
 
 .sidebar-left{
     background: $color-surface;
+    height: stretch;
 }
 
 .sidebar-right{
     background: $color-surface;
+    height: stretch;
 }
 
-.main-content{
-    min-height:100vh;
-}
+// .main-content{
+//     min-height:100vh;
+// }
