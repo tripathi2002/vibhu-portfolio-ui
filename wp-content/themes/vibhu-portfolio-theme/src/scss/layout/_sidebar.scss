@@ -1,6 +1,10 @@
 @use "../abstracts/variables" as *;
+@use "../utilities/media" as *;
 
 .profile {
+  background: #fff;
+  height: stretch;
+
   .profile-sidebar {
     text-align: center;
     margin: 3rem 0;
@@ -12,6 +16,10 @@
 
       img {
         border-radius: 50%;
+
+        @include max(767){
+              max-width: 50%;
+        }
       }
     }
 
@@ -139,5 +147,4 @@
       }
     }
   }
-
 }

@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as *;
+@use "../utilities/media" as *;
 
 .hero {
   background: $color-surface;
@@ -14,12 +15,18 @@
     h2 {
       //   margin-bottom: 2rem;
       width: max-content;
+
+      @include max(767){
+        width: fit-content;
+      }
+      
       span {
         color: $yellow;
         font-weight: 1;
         font-size: 4.2rem;
       }
     }
+
     p {
       color: $paragraph-font;
     }

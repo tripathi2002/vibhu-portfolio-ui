@@ -2,22 +2,9 @@
 @use "../utilities/media" as *;
 
 .sidebar-right {
-  // position: fixed;
-  // right: 20px;
-  // top: 50%;
-  // transform: translateY(-50%);
-  // z-index: 10;
-
-  @include max(767) {
-    position: fixed;
-    z-index: 10;
-    top: 96%;
-    right: 0;
-    left: 0;
-    border-radius: 1rem;
-    transform: translateY(-50%);
+  @include max(1023) {
+    display: none;
   }
-
   .right-navigation {
     display: flex;
     justify-content: center;
@@ -25,10 +12,8 @@
     margin: 5rem 0;
     position: sticky;
     top: calc(100vh - 70%);
-
-    @include min(768) {
-      // height: 100vh;
-    }
+    top: 0;
+    transform: translateY(50%);
 
     .nav-menu {
       list-style: none;
@@ -37,13 +22,10 @@
       align-items: center;
       gap: 20px;
 
-      @include max(767) {
-        flex-direction: row;
-      }
-
       li {
-        margin-bottom: 2rem;
-
+        // margin-bottom: 2rem;
+        border-radius: 3rem;
+        padding: 1rem;
         a {
           display: flex;
           align-items: center;
@@ -57,11 +39,77 @@
             background: $yellow;
           }
 
-          @include max(767) {
-            width: 4.5rem;
-            height: 4.5rem;
-            background: $color-surface;
-            border-radius: 50%;
+          img {
+            width: 1.8rem;
+          }
+        }
+      }
+
+      .active {
+        background: $yellow;
+      }
+    }
+  }
+}
+
+.nav-float {
+  position: sticky;
+  bottom: 0.6rem;
+
+  @include min(1024) {
+    display: none;
+  }
+  .right-navigation {
+    // background: radial-gradient($color-surface, transparent);
+    // background: $color-surface;
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      // flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      justify-content: center;
+      background: $color-surface;
+      width: max-content;
+      margin: auto;
+      padding: 0 2rem;
+      margin-bottom: 1rem;
+      border-radius: 5rem;
+      box-shadow: 0.2rem 0.4rem 0.8 0.1rem;
+
+      
+        @include max(424){
+          padding: 0 0.6rem;
+          gap: 1rem;
+        }
+
+      li {
+        // margin-bottom: 2rem;
+        border-radius: 3rem;
+        padding: 1rem;
+        margin: 1rem 0;
+
+        @include max(424){
+          padding: 0.6rem;
+          margin: 0.6rem 0;
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 4rem;
+          height: 4rem;
+          background: $color-surface;
+          border-radius: 50%;
+          
+          @include max(767){
+            width: 2rem;
+            height: 2rem;
+          }
+
+          &:hover {
+            background: $yellow;
           }
 
           img {

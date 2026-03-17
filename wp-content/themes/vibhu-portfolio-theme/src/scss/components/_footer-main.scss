@@ -1,11 +1,13 @@
-.site-footer{
-    margin-top:60px;
-    background:#fff;
-    padding:20px;
-    text-align:center;
-}
+@use "../abstracts/variables" as *;
 
-.footer-content p{
-    font-size:1.4rem;
-    color:#777;
+.site-footer {
+  // margin-top:60px;
+  background: $color-surface;
+  padding: 2rem;
+  text-align: center;
+
+  .footer-content p {
+    font-size: 1.4rem;
+    color: $paragraph-font;
+  }
 }
