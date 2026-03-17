@@ -1,12 +1,25 @@
 @use "../abstracts/variables" as *;
+@use "../utilities/media" as *;
 
-body{
-    background-color: $body-bg;
+body {
+  background-color: $body-bg;
 }
 
 .line {
-    width: 100%;
-    border-radius: 0.2rem;
-    margin: 2rem 0;
-    background-color: $gray-bg;
+  width: 100%;
+  border-radius: 0.2rem;
+  margin: 2rem 0;
+  background-color: $gray-bg;
+}
+
+@include min(1024) {
+  .tablet {
+    display: none !important;
+  }
+}
+
+@include max(1023) {
+  .laptop {
+    display: none !important;
+  }
 }

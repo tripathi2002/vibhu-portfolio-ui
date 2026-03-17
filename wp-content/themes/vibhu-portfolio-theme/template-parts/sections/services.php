@@ -1,4 +1,4 @@
-<section class="services">
+<section id="services" class="services">
     <div class="container">
         <div class="row">
             <div class="col section-header">
@@ -28,7 +28,8 @@
 
             <div class="col4 ">
                 <div class="service-card">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-game-development.png" alt="">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-game-development.png"
+                        alt="">
                     <h3>Mobile Apps</h3>
                     <p>Responsive and scalable mobile apps.</p>
                 </div>
@@ -36,7 +37,6 @@
 
             <div class="col4">
                 <div class="service-card">
-
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-illustration.png" alt="">
                     <h3>SEO Optimization</h3>
                     <p>Improve ranking and visibility.</p>

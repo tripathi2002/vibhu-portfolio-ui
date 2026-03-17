@@ -1,4 +1,4 @@
-<div class="container profile">
+<div id="profile" class="container profile">
     <div class="row">
         <div class="col">
             <div class="profile-sidebar">

@@ -1,4 +1,4 @@
-<section class="contact">
+<section id="contact" class="contact">
     <div class="container">
         <div class="row">
             <div class="col7 contact-form">
