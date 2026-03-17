@@ -1,9 +1,9 @@
 <section class="hero">
     <div class="container">
-        <div class="row">
-            <div class="col6 hero-content">
+        <div class="row hero-main">
+            <div class="col7 hero-content">
                 <h2>
-                    I'm Vibhu Tripathi<br>
+                    Vibhu Tripathi<br>
                     <span>
                         Full Stack
                     </span>
@@ -29,8 +29,8 @@
 
                 </button>
             </div>
-            <div class="col6 hero-image">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/profile" alt="">
+            <div class="col5 hero-image">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hero-right.png" alt="">
             </div>
         </div>
     </div>

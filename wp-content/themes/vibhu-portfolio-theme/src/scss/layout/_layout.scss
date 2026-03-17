@@ -18,12 +18,12 @@
 
   @include min-max(768, 1023) {
     .sidebar-left {
-      @include flex(0 0 35%);
+      @include flex(0, 0, 35%);
       max-width: 35%;
     }
 
     .main-content {
-      @include flex(0 0 65%);
+      @include flex(0, 0, 65%);
       max-width: 65%;
     }
 
