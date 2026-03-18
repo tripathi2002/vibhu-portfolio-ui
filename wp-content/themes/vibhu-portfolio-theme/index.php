@@ -14,7 +14,8 @@
             <?php get_template_part('template-parts/sections/education'); ?>
             <?php get_template_part('template-parts/sections/work-history'); ?>
             <?php get_template_part('template-parts/sections/contact'); ?>
-            
+            <?php get_template_part('template-parts/footer/footer-main'); ?>
+
         </main>
         <aside class="col1 sidebar-right">
             <?php get_template_part('template-parts/header/navigation'); ?>

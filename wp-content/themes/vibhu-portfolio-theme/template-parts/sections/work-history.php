@@ -1,4 +1,4 @@
-<section id="work" class="work-history">
+<section id="work" class="work-history reveal">
     <div class="container">
         <div class="row">
             <div class="col">

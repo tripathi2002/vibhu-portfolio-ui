@@ -1,26 +1,25 @@
-<section id="contact" class="contact">
+<section id="contact" class="contact reveal">
     <div class="container">
         <div class="row">
             <div class="col7 contact-form">
 
                 <h2>Leave Us Your Info</h2>
 
-                <form>
+                <form method="post" class="contact-form">
 
-                    <input type="text" placeholder="Your Full Name">
+                    <input type="text" name="name" placeholder="Your Name" required>
 
-                    <input type="email" placeholder="Your Email">
+                    <input type="email" name="email" placeholder="Your Email" required>
 
-                    <input type="text" placeholder="Subject">
+                    <input type="text" name="subject" placeholder="Subject">
 
-                    <textarea placeholder="Your Message"></textarea>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
 
-                    <button class="btn btn-primary">
+                    <button type="submit" name="submit_contact" class="btn btn-primary">
                         Send Message
                     </button>
 
                 </form>
-
             </div>
 
 

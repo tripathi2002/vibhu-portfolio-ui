@@ -1,4 +1,4 @@
-<section id="services" class="services">
+<section id="services" class="services reveal">
     <div class="container">
         <div class="row">
             <div class="col section-header">

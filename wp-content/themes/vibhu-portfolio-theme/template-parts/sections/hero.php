@@ -1,4 +1,4 @@
-<section id="home" class="hero">
+<section id="home" class="hero reveal">
     <div class="container">
         <div class="row hero-main">
             <div class="col7 hero-content">
@@ -15,7 +15,7 @@
                     architecture and scalable solutions.
                 </p>
 
-                <button href="#" class="btn btn-primary">
+                <a href="https://wa.me/917081229558" target="_blank" class="btn btn-primary ">
                     Hire Me <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_2_2655)">
@@ -30,7 +30,7 @@
                         </defs>
                     </svg>
 
-                </button>
+                </a>
             </div>
             <div class="col5 hero-image">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hero-right.png" alt="">

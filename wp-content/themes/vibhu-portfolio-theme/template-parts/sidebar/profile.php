@@ -11,27 +11,27 @@
                 <p class="profile-role">Full Stack Developer</p>
 
                 <ul class="profile-social">
-                    <li><a href="#">
+                    <!-- <li><a href="#">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Icons-facebook.png"
                                 alt="">
-                        </a></li>
-                    <li><a href="#">
+                        </a></li> -->
+                    <!-- <li><a href="#">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Icons-instagram.png"
                                 alt="">
-                        </a></li>
-                    <li><a href="#">
+                        </a></li> -->
+                    <li><a target="_blank" href="https://www.linkedin.com/in/vibhu-tripathi-dev/">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Icons-linkedin.png"
                                 alt="">
                         </a></li>
-                    <li><a href="#">
+                    <!-- <li><a href="#">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Icons-twitter.png"
                                 alt="">
-                        </a></li>
-                    <li><a href="#">
+                        </a></li> -->
+                    <li><a href="">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Icons-dribbble.png"
                                 alt="">
                         </a></li>
-                    <li><a href="#">
+                    <li><a href="">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Icons-Youtube.png"
                                 alt="">
                         </a></li>
@@ -239,7 +239,8 @@
         <div class="col">
             <div class="sidebar-section download-cv">
 
-                <a href="#" class="btn-download">
+                <a href="<?php echo get_template_directory_uri(); ?>/assets/files/vibhu-cv.pdf" class="btn btn-primary"
+                    download>
                     <span>
                         Download CV
                     </span>

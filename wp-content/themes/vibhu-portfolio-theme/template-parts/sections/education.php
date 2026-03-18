@@ -1,4 +1,4 @@
-<section id="education" class="education">
+<section id="education" class="education reveal">
     <div class="container">
         <div class="row">
             <div class="col section-header">

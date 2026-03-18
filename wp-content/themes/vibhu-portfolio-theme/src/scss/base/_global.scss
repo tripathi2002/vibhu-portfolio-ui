@@ -1,8 +1,31 @@
 @use "../abstracts/variables" as *;
 @use "../utilities/media" as *;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: $body-bg;
+
+  /* Chrome, Edge, Safari */
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $gray-bg;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, $yellow, $yellow-2);
+    // background: $paragraph-font;
+    border-radius: 1rem;
+
+    &:hover {
+      background: $yellow;
+    }
+  }
 }
 
 .line {

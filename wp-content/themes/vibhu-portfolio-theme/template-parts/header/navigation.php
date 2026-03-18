@@ -1,7 +1,7 @@
 <nav class="right-navigation">
 
    <ul class="nav-menu">
-      <li>
+      <li class="active">
          <a class="laptop" href="#home">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-home.png" alt="Home">
          </a>
