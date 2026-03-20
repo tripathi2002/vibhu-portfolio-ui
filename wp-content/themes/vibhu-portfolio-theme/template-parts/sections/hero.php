@@ -11,8 +11,8 @@
                 </h2>
 
                 <p>
-                    I design and develop modern web applications with clean
-                    architecture and scalable solutions.
+                    I design and develop modern web applications that deliver seamless
+                    user experiences and real business value.
                 </p>
 
                 <a href="https://wa.me/917081229558" target="_blank" class="btn btn-primary ">

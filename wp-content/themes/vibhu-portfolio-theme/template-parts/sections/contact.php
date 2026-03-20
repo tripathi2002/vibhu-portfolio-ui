@@ -39,14 +39,14 @@
                         <span>Bengaluru</span>
                     </li>
 
-                    <li>
+                    <!-- <li>
                         <strong>Email:</strong>
                         <span>XXXXX2030@gmail.com</span>
-                    </li>
+                    </li> -->
 
                     <li>
                         <strong>Phone:</strong>
-                        <span>+91 XXXXXX9558</span>
+                        <span>+91 7081229558</span>
                     </li>
                 </ul>
             </div>

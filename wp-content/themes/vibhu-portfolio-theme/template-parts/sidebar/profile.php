@@ -132,7 +132,7 @@
 
                 <div class="language-item">
                     <div class="language-head">
-                        <span>Node.js</span>
+                        <span>Node.js/Express.js</span>
                         <span>90%</span>
                     </div>
                     <div class="progress-bar">
@@ -142,7 +142,17 @@
 
                 <div class="language-item">
                     <div class="language-head">
-                        <span>React.js</span>
+                        <span>React.js/Angular</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <span style="width:85%"></span>
+                    </div>
+                </div>
+
+                <div class="language-item">
+                    <div class="language-head">
+                        <span>SQL/MongoDB/Redis</span>
                         <span>80%</span>
                     </div>
                     <div class="progress-bar">
@@ -152,17 +162,7 @@
 
                 <div class="language-item">
                     <div class="language-head">
-                        <span>SQL</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <span style="width:80%"></span>
-                    </div>
-                </div>
-
-                <div class="language-item">
-                    <div class="language-head">
-                        <span>Express.js</span>
+                        <span>JavaScript/TypeScript</span>
                         <span>80%</span>
                     </div>
                     <div class="progress-bar">
@@ -194,7 +194,7 @@
                             <rect x="5.5" y="5.5" width="9" height="9" stroke="#ffb400" />
                         </svg>
                         <span>
-                            Bootstrap, Materialize
+                            Responsive Design
                         </span>
                     </li>
                     <li>
@@ -203,7 +203,7 @@
                             <rect x="5.5" y="5.5" width="9" height="9" stroke="#ffb400" />
                         </svg>
                         <span>
-                            Stylus, Sass, Less
+                            Version Control (Git)
                         </span>
                     </li>
                     <li>
@@ -212,7 +212,7 @@
                             <rect x="5.5" y="5.5" width="9" height="9" stroke="#ffb400" />
                         </svg>
                         <span>
-                            Gulp, Webpack, Grunt
+                            REST API Integration
                         </span>
                     </li>
                     <li>
@@ -220,7 +220,14 @@
                             <rect x="0.5" y="0.5" width="9" height="9" stroke="#ffb400" />
                             <rect x="5.5" y="5.5" width="9" height="9" stroke="#ffb400" />
                         </svg>
-                        <span>Git Knowledge</span>
+                        <span>Problem Solving</span>
+                    </li>
+                    <li>
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0.5" y="0.5" width="9" height="9" stroke="#ffb400" />
+                            <rect x="5.5" y="5.5" width="9" height="9" stroke="#ffb400" />
+                        </svg>
+                        <span>Debugging & Testing</span>
                     </li>
                 </ul>
 
@@ -262,5 +269,4 @@
             </div>
         </div>
     </div>
-
 </div>
