@@ -5,75 +5,43 @@
 .hero {
   background: $color-surface;
   padding: 9.3rem 6rem;
-  // padding-top: ;
-  @include max(767){
-    display: none;
+
+  @include max(991) {
+    padding: 5rem 1rem;
   }
 
-  &-main {
-    @include flex-wrap(wrap);
-
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      // margin-bottom: 2.5rem;
-      // @include flex(0 0 40%);
-      // @include flex-wrap(wrap);
-      // max-width: 40%;
-
-      @include min-max(768, 1023) {
-        @include flex(0, 0, 80%);
-        max-width: 80%;
-      }
-
-      // @include max(767) {
-      //   // @include flex(0 0 100%);
-      //   // max-width: 100%;
-      // }
-
-      h2 {
-        //   margin-bottom: 2rem;
-        // width: max-content;
-        width: 100%;
-
-        @include max(767) {
-          width: fit-content;
-        }
-
-        span {
-          color: $yellow;
-          font-weight: 1;
-          font-size: 4.2rem;
-        }
-      }
-
-      p {
-        color: $paragraph-font;
-      }
-
-      .btn {
-        max-width: 20rem;
-        margin-top: 2rem;
+  @include max(767) {
+    display: none;
+  }
+  .hero-content {
+    h2 {
+      span {
+        color: $yellow;
+        font-weight: 1;
+        font-size: 4.2rem;
       }
     }
 
-    .hero-image {
-      display: flex;
-      justify-content: center;
+    p {
+      color: $paragraph-font;
+    }
 
-      // @include flex(0 0 60%);
-      // max-width: 60%;
+    .btn {
+      max-width: 20rem;
+      margin-top: 2rem;
+    }
+  }
 
-      @include max(1023) {
-        // @include flex(0 0 30%);
-        // max-width: 30%;
-        display: none;
-      }
+  .hero-image {
+    display: flex;
+    justify-content: center;
 
-      img {
-        max-width: 100%;
-      }
+    @include max(991) {
+      display: none;
+    }
+
+    img {
+      max-width: 100%;
     }
   }
 }

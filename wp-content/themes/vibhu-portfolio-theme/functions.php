@@ -58,6 +58,14 @@ function vibhu_handle_contact_form()
 
 }
 
+add_filter('acf/settings/save_json', function() {
+    return get_stylesheet_directory() . '/acf-json';
+});
+
+add_filter('acf/settings/load_json', function($paths) {
+    $paths[] = get_stylesheet_directory() . '/acf-json';
+    return $paths;
+});
 
 add_action('wp_enqueue_scripts', 'vibhu_portfolio_assets');
 add_action('wp_enqueue_scripts', 'vibhu_assets');
@@ -70,4 +78,4 @@ require_once get_template_directory() . '/inc/menus.php';
 require_once get_template_directory() . '/inc/cpt/projects.php';
 require_once get_template_directory() . '/inc/cpt/messages.php';
 
-require_once get_template_directory() . '/inc/acf/projects-fields.php';
+// require_once get_template_directory() . '/inc/acf/projects-fields.php';

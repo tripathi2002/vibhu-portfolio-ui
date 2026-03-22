@@ -1,4 +1,4 @@
-<div id="profile" class="container profile">
+<div class="container profile">
     <div class="row">
         <div class="col">
             <div class="profile-sidebar">
@@ -244,7 +244,7 @@
 
     <div class="row">
         <div class="col">
-            <div class="sidebar-section download-cv">
+            <div class="sidebar-section btn">
 
                 <a href="<?php echo get_template_directory_uri(); ?>/assets/files/vibhu-cv.pdf" class="btn btn-primary"
                     download>

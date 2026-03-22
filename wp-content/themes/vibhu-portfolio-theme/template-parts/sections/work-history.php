@@ -22,9 +22,9 @@
                         </div>
 
                         <div class="work-right">
-                            <h4>Waayu Food Delivey App</h4>
+                            <h4>Waayu - Food Delivery App</h4>
                             <p>
-                                Developed scalable web applications and maintained enterprise-level
+                                Developed scalable applications and maintained enterprise-level
                                 platforms using modern technologies.
                             </p>
                         </div>

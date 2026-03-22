@@ -20,7 +20,7 @@ function vibhu_register_projects_cpt() {
         'menu_icon' => 'dashicons-portfolio',
         'supports' => ['title','editor','thumbnail'],
         'has_archive' => true,
-        'rewrite' => ['slug' => 'projects'],
+        'rewrite' => ['slug' => 'project'],
         'show_in_rest' => true
     ];
 

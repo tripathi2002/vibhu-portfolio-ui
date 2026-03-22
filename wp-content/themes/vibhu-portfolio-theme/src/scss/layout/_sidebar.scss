@@ -2,7 +2,7 @@
 @use "../utilities/media" as *;
 
 .profile {
-  background: #fff;
+  background: $color-surface;
   height: stretch;
 
   .profile-sidebar {
@@ -18,7 +18,7 @@
         border-radius: 50%;
 
         @include max(767){
-              max-width: 50%;
+              max-width: 40%;
         }
       }
     }
