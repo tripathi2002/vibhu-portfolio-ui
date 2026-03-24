@@ -55,7 +55,7 @@ h6,.h6{ font-size: 2rem; }
 
 /* Paragraph spacing */
 p + p{
-    margin-top: 3.5rem;
+    margin-top: 1.5rem;
 
     @include max(767){
         margin-top: 3rem;

@@ -17,8 +17,9 @@
       display: flex;
       padding: 3rem;
       border-bottom: 0.1rem solid $gray-bg;
-      gap: 2rem;
-      
+      // gap: 2rem;
+      flex-wrap: wrap;
+
       @include max(767) {
         @include flex-wrap(wrap);
         gap: 1rem;
@@ -27,7 +28,7 @@
       .work-left {
         width: 40%;
 
-        @include max(767) {
+        @include max(991) {
           width: 100%;
         }
 
@@ -40,7 +41,7 @@
       .work-right {
         width: 60%;
 
-        @include max(767) {
+        @include max(991) {
           width: 100%;
         }
 

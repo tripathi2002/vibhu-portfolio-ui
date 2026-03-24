@@ -45,6 +45,11 @@ nav {
         border: 0.2rem solid;
         margin: 1rem;
 
+        &:active, &:hover {
+          background-color: $yellow;
+        }
+
+        
         img {
           width: 1.8rem;
         }
