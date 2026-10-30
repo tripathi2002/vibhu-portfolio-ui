@@ -12,11 +12,11 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npx ng build --configuration development
+      - run: npx ng build --configuration development --base-href /sit/portfolio/ui/v1/
       - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: dist/portfolio/browser/
-          server-dir: public_html/ui/v1/
+          server-dir: sit/portfolio/ui/v1/
