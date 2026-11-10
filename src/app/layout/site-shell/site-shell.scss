@@ -1,0 +1,9 @@
+.site-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-shell__main {
+  flex: 1;
+}

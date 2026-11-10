@@ -1,0 +1,106 @@
+<section class="hero section">
+  <div class="container hero__grid">
+    <div class="hero__content">
+      <p class="eyebrow">{{ hero.prefix }}</p>
+      <div class="hero__rule" aria-hidden="true"></div>
+      <h1 class="hero__title">{{ hero.headline }}</h1>
+      <p class="hero__subtitle">{{ hero.subtitle }}</p>
+
+      <ul class="hero__contact">
+        <li>
+          <a [href]="'mailto:' + site.email">{{ site.email }}</a>
+        </li>
+        <li>
+          <a [href]="'tel:' + site.phone.replace(/\s/g, '')">{{ site.phone }}</a>
+        </li>
+      </ul>
+
+      <a class="btn btn--primary" routerLink="/contact">Get in touch</a>
+    </div>
+
+    <div class="hero__media">
+      <img src="images/hero.png" alt="Portrait of Vibhu Tripathi" width="670" height="670" />
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container narrow">
+    <p class="eyebrow">{{ aboutIntro.label }}</p>
+    <h2 class="section-title">{{ aboutIntro.heading }}</h2>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container about-detail">
+    <h3 class="about-detail__title">{{ aboutDetail.title }}</h3>
+    <p class="about-detail__lead">{{ aboutDetail.lead }}</p>
+    <p class="about-detail__body">{{ aboutDetail.body }}</p>
+    <a class="btn btn--outline" routerLink="/about">Read more</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <h2 class="section-title">{{ servicesIntro.title }}</h2>
+        <p class="section-lead">{{ servicesIntro.description }}</p>
+      </div>
+      <img class="section-head__arrow" src="images/arrow.png" alt="" width="116" height="46" />
+    </div>
+
+    <div class="service-grid">
+      @for (service of services; track service.title) {
+        <article class="service-card">
+          <h4 class="service-card__title">{{ service.title }}</h4>
+          <p>{{ service.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split-panel">
+    <div>
+      <h2 class="section-title">Skills</h2>
+      <ul class="skill-list">
+        @for (skill of skills; track skill.name) {
+          <li class="skill-list__item">
+            <div class="skill-list__meta">
+              <span>{{ skill.name }}</span>
+              <span>{{ skill.percent }}%</span>
+            </div>
+            <div class="skill-list__track" role="presentation">
+              <span class="skill-list__fill" [style.width.%]="skill.percent"></span>
+            </div>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="section-title">My Experience</h2>
+      @for (job of experience; track job.company) {
+        <article class="experience-card">
+          <p class="experience-card__period">{{ job.period }}</p>
+          <p class="experience-card__company">{{ job.company }}</p>
+          <h3 class="experience-card__role">{{ job.role }}</h3>
+          <p>{{ job.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="cta section">
+  <div class="container cta__inner">
+    <h2 class="section-title">{{ cta.title }}</h2>
+    <p class="section-lead">{{ cta.text }}</p>
+    <a class="btn btn--primary" [routerLink]="cta.contactPath">{{ cta.button }}</a>
+    <p class="cta__email">
+      Or email me at <a [href]="'mailto:' + site.email">{{ site.email }}</a>
+    </p>
+  </div>
+</section>

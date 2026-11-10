@@ -1,0 +1,48 @@
+<header class="site-header">
+  <div class="site-header__inner container">
+    <a class="site-header__brand" routerLink="/" (click)="closeMenu()">
+      <img
+        src="images/logo.png"
+        width="180"
+        height="60"
+        [alt]="siteName + ' | Full-Stack Developer'"
+      />
+    </a>
+
+    <button
+      type="button"
+      class="site-header__toggle"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="primary-nav"
+      (click)="toggleMenu()"
+    >
+      <span class="sr-only">Toggle menu</span>
+      <span class="site-header__toggle-bar"></span>
+      <span class="site-header__toggle-bar"></span>
+      <span class="site-header__toggle-bar"></span>
+    </button>
+
+    <nav
+      id="primary-nav"
+      class="site-header__nav"
+      [class.site-header__nav--open]="menuOpen()"
+      aria-label="Primary"
+    >
+      <ul class="site-header__menu">
+        @for (item of nav; track item.path) {
+          <li>
+            <a
+              class="site-header__link"
+              [routerLink]="item.path"
+              routerLinkActive="site-header__link--active"
+              [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+              (click)="closeMenu()"
+            >
+              {{ item.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
