@@ -10,42 +10,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Prepare deploy package
-        run: |
-          set -euo pipefail
-          mkdir -p deploy
-
-          for f in contact.php .htaccess config.example.php; do
-            if [ ! -f "$f" ]; then
-              echo "Missing required file: $f" >&2
-              echo "If this is .htaccess, ensure it is committed (not gitignored)." >&2
-              exit 1
-            fi
-            cp "$f" deploy/
-          done
-
-          if [ ! -d src ]; then
-            echo "Missing required directory: src" >&2
-            exit 1
-          fi
-          cp -r src deploy/src
-
-          if [ -d sql ]; then
-            cp -r sql deploy/sql
-          fi
-
-          ls -la deploy
-          ls -la deploy/src
-
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./deploy/
+          local-dir: ./
           server-dir: sit/portfolio/api/v1/
           exclude: |
             **/.git*
             **/.git*/**
+            **/.github/**
             **/config.php
+            **/node_modules/**
+            **/deploy/**
+            README.md
+            LICENSE
