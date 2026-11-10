@@ -1,0 +1,16 @@
+.page-hero {
+  margin-bottom: 2.5rem;
+}
+
+.page-hero__rule {
+  width: 64px;
+  height: 3px;
+  margin-bottom: 1.25rem;
+  background: var(--accent);
+}
+
+.page-hero__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+}

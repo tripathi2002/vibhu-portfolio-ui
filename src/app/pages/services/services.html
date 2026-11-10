@@ -1,0 +1,42 @@
+<section class="section">
+  <div class="container">
+    <app-page-hero [title]="page.title" />
+
+    <div class="services__intro">
+      <h2 class="section-title">{{ page.intro.title }}</h2>
+      <p class="section-lead">{{ page.intro.description }}</p>
+    </div>
+
+    <div class="service-grid services__grid">
+      @for (service of services; track service.title) {
+        <article class="service-card">
+          <h4 class="service-card__title">{{ service.title }}</h4>
+          <p>{{ service.description }}</p>
+        </article>
+      }
+    </div>
+
+    <div class="services__work">
+      <div class="section-head section-head--split">
+        <h2 class="section-title">{{ page.latestWorkTitle }}</h2>
+        <img class="section-head__arrow" src="images/arrow.png" alt="" width="80" height="43" />
+      </div>
+
+      <div class="work-grid">
+        @for (project of latestWork; track project.href) {
+          <article class="work-card">
+            <img [src]="project.image" [alt]="project.alt" loading="lazy" />
+            <a
+              class="btn btn--primary"
+              [href]="project.href"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ project.title }}
+            </a>
+          </article>
+        }
+      </div>
+    </div>
+  </div>
+</section>

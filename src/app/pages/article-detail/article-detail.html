@@ -1,0 +1,20 @@
+<section class="section">
+  <div class="container narrow">
+    @if (article; as post) {
+      <a class="article-detail__back" routerLink="/articles">← All articles</a>
+      <h1 class="article-detail__title">{{ post.title }}</h1>
+      <p class="article-detail__meta">
+        <span>{{ post.category }}</span> /
+        <time [dateTime]="post.date">{{ formatDate(post.date) }}</time>
+      </p>
+      @if (post.image; as image) {
+        <img class="article-detail__hero" [src]="image" [alt]="post.title" />
+      }
+      <div class="prose article-detail__body" [innerHTML]="bodyHtml()"></div>
+    } @else {
+      <h1 class="section-title">Article not found</h1>
+      <p class="section-lead">This post may have moved or is not published yet.</p>
+      <a class="btn btn--primary" routerLink="/articles">Back to articles</a>
+    }
+  </div>
+</section>

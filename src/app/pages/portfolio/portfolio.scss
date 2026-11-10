@@ -1,0 +1,44 @@
+.portfolio-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(2rem, 5vw, 3rem);
+  align-items: start;
+}
+
+.portfolio-layout__image {
+  width: min(100%, 420px);
+  margin-top: 1rem;
+  border-radius: var(--radius);
+}
+
+.portfolio-masonry {
+  columns: 2;
+  column-gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.portfolio-masonry__item {
+  margin: 0 0 1.25rem;
+  break-inside: avoid;
+
+  img {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+.portfolio-layout__cta {
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 921px) {
+  .portfolio-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-masonry {
+    columns: 1;
+  }
+}

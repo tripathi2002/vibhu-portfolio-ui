@@ -1,0 +1,45 @@
+<section class="section">
+  <div class="container">
+    <app-page-hero title="About" />
+
+    <p class="eyebrow">{{ page.intro.label }}</p>
+    <h2 class="section-title about__lead">{{ page.intro.heading }}</h2>
+
+    <div class="about__detail">
+      <h3 class="about__subtitle">{{ page.detail.title }}</h3>
+      <p>{{ page.detail.body }}</p>
+      <p class="about__note">{{ page.detail.note }}</p>
+    </div>
+
+    <div class="about__skills">
+      <app-skill-bars
+        [skills]="skills"
+        title="My Skills"
+        [intro]="page.skillsIntro"
+      />
+    </div>
+
+    <div class="about__experience">
+      <h2 class="section-title">Experience</h2>
+      @for (job of experience; track job.company) {
+        <article class="experience-card">
+          <p class="experience-card__period">{{ job.period }}</p>
+          <p class="experience-card__company">{{ job.company }}</p>
+          <h3 class="experience-card__role">{{ job.role }}</h3>
+          <p>{{ job.description }}</p>
+        </article>
+      }
+    </div>
+
+    <div class="about__footer">
+      <div class="section-head section-head--split">
+        <h2 class="section-title">Services</h2>
+        <img class="section-head__arrow" src="images/arrow.png" alt="" width="80" height="43" />
+      </div>
+      <a class="about__social" [href]="page.gravatar" target="_blank" rel="noopener noreferrer">
+        Gravatar profile
+      </a>
+      <a class="btn btn--primary" routerLink="/services">View services</a>
+    </div>
+  </div>
+</section>

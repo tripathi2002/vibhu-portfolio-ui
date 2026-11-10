@@ -1,0 +1,28 @@
+<section class="section">
+  <div class="container contact-layout">
+    <div class="contact-layout__aside">
+      <app-page-hero [title]="page.title" />
+      <img
+        class="contact-layout__image"
+        src="images/contact-bg.jpg"
+        alt=""
+        width="570"
+        height="570"
+      />
+    </div>
+
+    <div class="contact-layout__main">
+      <h2 class="section-title">{{ page.form.title }}</h2>
+      <p class="section-lead">{{ page.form.description }}</p>
+
+      <div class="contact-layout__form-panel">
+        <app-contact-form />
+      </div>
+
+      <p class="contact-layout__direct">
+        Or email <a [href]="'mailto:' + site.email">{{ site.email }}</a> or call
+        <a [href]="'tel:' + site.phone.replace(/\s/g, '')">{{ site.phone }}</a>
+      </p>
+    </div>
+  </div>
+</section>

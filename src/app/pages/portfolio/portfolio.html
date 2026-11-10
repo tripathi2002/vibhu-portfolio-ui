@@ -1,0 +1,34 @@
+<section class="section">
+  <div class="container portfolio-layout">
+    <div class="portfolio-layout__hero">
+      <app-page-hero [title]="page.title" />
+      <img
+        class="portfolio-layout__image"
+        src="images/portfolio-hero.jpg"
+        alt=""
+        width="670"
+        height="670"
+      />
+    </div>
+
+    <div class="portfolio-layout__main">
+      <h2 class="section-title">{{ page.subtitle }}</h2>
+
+      <div class="portfolio-masonry">
+        @for (item of gallery; track item.src) {
+          <figure class="portfolio-masonry__item">
+            <img [src]="item.src" [alt]="item.alt" loading="lazy" />
+          </figure>
+        }
+      </div>
+
+      <div class="portfolio-layout__cta">
+        <div class="section-head section-head--split">
+          <h2 class="section-title">Contact</h2>
+          <img class="section-head__arrow" src="images/arrow.png" alt="" width="80" height="43" />
+        </div>
+        <a class="btn btn--primary" routerLink="/contact">Get in touch</a>
+      </div>
+    </div>
+  </div>
+</section>

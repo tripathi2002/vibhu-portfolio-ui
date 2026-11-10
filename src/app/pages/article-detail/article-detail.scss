@@ -1,0 +1,26 @@
+.article-detail__back {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.article-detail__title {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+}
+
+.article-detail__meta {
+  margin: 0.75rem 0 1.5rem;
+  color: var(--text-muted);
+}
+
+.article-detail__hero {
+  width: 100%;
+  margin-bottom: 2rem;
+  border-radius: var(--radius);
+}
+
+.article-detail__body {
+  display: block;
+}

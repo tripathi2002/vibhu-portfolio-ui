@@ -1,0 +1,38 @@
+.services__intro {
+  margin-bottom: 2rem;
+}
+
+.services__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.services__work {
+  margin-top: 3.5rem;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.work-card {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: center;
+  text-align: center;
+
+  img {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+@media (max-width: 921px) {
+  .services__grid,
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+}

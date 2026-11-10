@@ -1,0 +1,53 @@
+.about__lead {
+  max-width: 54rem;
+  margin-top: 0.5rem;
+}
+
+.about__detail {
+  display: block;
+  margin-top: 2.5rem;
+}
+
+.about__subtitle {
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
+}
+
+.about__note {
+  color: var(--text-muted);
+}
+
+.about__skills,
+.about__experience {
+  margin-top: 3rem;
+}
+
+.about__footer {
+  margin-top: 3rem;
+}
+
+.about__social {
+  display: inline-block;
+  margin: 1rem 0 1.25rem;
+}
+
+.experience-card {
+  margin-top: 1.5rem;
+}
+
+.experience-card__period {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.experience-card__company {
+  margin: 0.35rem 0;
+  color: var(--accent-hot);
+  font-weight: 700;
+}
+
+.experience-card__role {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}

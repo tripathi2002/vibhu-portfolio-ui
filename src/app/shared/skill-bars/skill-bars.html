@@ -1,0 +1,19 @@
+<div class="skill-bars">
+  <h2 class="section-title">{{ title() }}</h2>
+  @if (intro(); as text) {
+    <p class="section-lead">{{ text }}</p>
+  }
+  <ul class="skill-bars__list">
+    @for (skill of skills(); track skill.name) {
+      <li class="skill-bars__item">
+        <div class="skill-bars__meta">
+          <span>{{ skill.name }}</span>
+          <span>{{ skill.percent }}%</span>
+        </div>
+        <div class="skill-bars__track" role="presentation">
+          <span class="skill-bars__fill" [style.width.%]="skill.percent"></span>
+        </div>
+      </li>
+    }
+  </ul>
+</div>

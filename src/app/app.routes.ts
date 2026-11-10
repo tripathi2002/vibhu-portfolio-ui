@@ -1,7 +1,20 @@
 import { Routes } from '@angular/router';
 import { SiteShell } from './layout/site-shell/site-shell';
-import { ComingSoon } from './pages/coming-soon/coming-soon';
+import { About } from './pages/about/about';
+import { ArticleDetail } from './pages/article-detail/article-detail';
+import { Articles } from './pages/articles/articles';
+import { Contact } from './pages/contact/contact';
 import { Home } from './pages/home/home';
+import { Portfolio } from './pages/portfolio/portfolio';
+import { PrivacyPolicy } from './pages/privacy-policy/privacy-policy';
+import { Services } from './pages/services/services';
+import { getArticleBySlug } from './core/data/articles.data';
+
+const legacyArticleRedirects = [
+  'my-journey-as-a-full-stack-developer',
+  'how-im-structuring-my-portfolio-for-long-term-scalability',
+  'developer-portfolio-public',
+] as const;
 
 export const routes: Routes = [
   {
@@ -9,42 +22,22 @@ export const routes: Routes = [
     component: SiteShell,
     children: [
       { path: '', component: Home, title: 'Know me' },
+      { path: 'about', component: About, title: 'About' },
+      { path: 'services', component: Services, title: 'Services' },
+      { path: 'articles', component: Articles, title: 'Articles' },
       {
-        path: 'about',
-        component: ComingSoon,
-        data: { title: 'About' },
-        title: 'About',
+        path: 'articles/:slug',
+        component: ArticleDetail,
+        title: (route) => getArticleBySlug(route.paramMap.get('slug') ?? '')?.title ?? 'Article',
       },
-      {
-        path: 'services',
-        component: ComingSoon,
-        data: { title: 'Services' },
-        title: 'Services',
-      },
-      {
-        path: 'articles',
-        component: ComingSoon,
-        data: { title: 'Articles' },
-        title: 'Articles',
-      },
-      {
-        path: 'portfolio',
-        component: ComingSoon,
-        data: { title: 'Portfolio' },
-        title: 'Portfolio',
-      },
-      {
-        path: 'contact',
-        component: ComingSoon,
-        data: { title: 'Contact' },
-        title: 'Contact',
-      },
-      {
-        path: 'privacy-policy',
-        component: ComingSoon,
-        data: { title: 'Privacy Policy' },
-        title: 'Privacy Policy',
-      },
+      { path: 'portfolio', component: Portfolio, title: 'Portfolio' },
+      { path: 'contact', component: Contact, title: 'Contact' },
+      { path: 'privacy-policy', component: PrivacyPolicy, title: 'Privacy Policy' },
+      ...legacyArticleRedirects.map((slug) => ({
+        path: slug,
+        redirectTo: `articles/${slug}`,
+        pathMatch: 'full' as const,
+      })),
     ],
   },
   { path: '**', redirectTo: '' },

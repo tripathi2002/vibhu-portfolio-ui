@@ -120,3 +120,151 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { label: 'HackerRank', href: 'https://www.hackerrank.com/profile/tripathi2002' },
   { label: 'Instagram', href: 'https://www.instagram.com/hindu.vibhu.tripathi/' },
 ];
+
+export const ABOUT_PAGE = {
+  intro: {
+    label: 'About Me',
+    heading:
+      'I am Vibhu Tripathi, a Bengaluru-based full-stack developer building backend APIs and web applications.',
+  },
+  detail: {
+    title: 'Full-stack developer focused on reliable APIs and web apps',
+    body: 'I work across the stack with Node.js, Express, React and MySQL, turning requirements into clean, maintainable backend services and responsive user interfaces.',
+    note: 'As a Software Developer at Hotwire, I focus on well-structured APIs, efficient database queries and front ends that are simple to use and easy to maintain.',
+  },
+  skillsIntro:
+    'I believe learning never stops. I keep exploring new tools and practices that help me build better software, faster.',
+  gravatar: 'https://gravatar.com/vibhutripathiwork',
+} as const;
+
+export const ABOUT_SKILLS: SkillItem[] = [
+  { name: 'JavaScript', percent: 97 },
+  { name: 'Node.js', percent: 87 },
+  { name: 'React.js', percent: 90 },
+  { name: 'Angular', percent: 85 },
+  { name: 'MongoDB', percent: 75 },
+];
+
+export const ABOUT_EXPERIENCE: ExperienceItem[] = [
+  {
+    period: '2024-2025',
+    company: 'Hotwire Global',
+    role: 'Software Developer',
+    description:
+      'Building and maintaining backend APIs and web application features with Node.js, Express, React and MySQL.',
+  },
+];
+
+export const SERVICES_PAGE = {
+  title: 'My Work',
+  intro: {
+    title: 'What I do',
+    description:
+      'I build backend APIs, web applications and full-stack products with Node.js, Express, React and MySQL, from planning through to deployment.',
+  },
+  latestWorkTitle: 'My Latest Work',
+} as const;
+
+export const SERVICES_DETAILED: ServiceItem[] = [
+  {
+    title: 'BACKEND & API DEVELOPMENT',
+    description:
+      'Secure, well-documented REST APIs and backend services built with Node.js and Express, backed by efficient MySQL data models.',
+  },
+  {
+    title: 'WEB DEVELOPMENT',
+    description:
+      'Responsive, maintainable web applications built with React, with clean code and a focus on performance and usability.',
+  },
+  {
+    title: 'FULL-STACK APPLICATIONS',
+    description:
+      'End-to-end applications that connect a React front end to Node.js and Express APIs and a MySQL database, delivered as one cohesive product.',
+  },
+  {
+    title: 'DATABASE DESIGN',
+    description:
+      'Structured MySQL schemas and queries designed for data integrity and speed, so applications stay fast as they grow.',
+  },
+  {
+    title: 'API INTEGRATION',
+    description:
+      'Connecting web apps to third-party services and internal systems through reliable, well-tested API integrations.',
+  },
+  {
+    title: 'MAINTENANCE & IMPROVEMENTS',
+    description:
+      'Debugging, refactoring and performance improvements for existing Node.js and React codebases.',
+  },
+];
+
+export const CONTACT_PAGE = {
+  title: 'Contact',
+  form: {
+    title: 'Send me a message',
+    description:
+      'Whether you wish to discuss new ideas or have a project for me, simply fill this form and I’ll get back to you soon.',
+    success:
+      'Thanks for reaching out. Your message is captured locally for now — the PHP backend will send it by email once we connect it on Hostinger.',
+  },
+} as const;
+
+export const PORTFOLIO_PAGE = {
+  title: 'Portfolio',
+  subtitle: 'Selected projects coming soon',
+} as const;
+
+export interface PrivacySection {
+  heading: string;
+  paragraphs: string[];
+  html?: string;
+}
+
+export const PRIVACY_POLICY = {
+  title: 'Privacy Policy',
+  lastUpdated: '30 October 2026',
+  intro:
+    'This Privacy Policy explains how vibhu.pro (“this site”), the personal portfolio of Vibhu Tripathi, collects and uses information when you visit it.',
+  sections: [
+    {
+      heading: 'Information you give me',
+      paragraphs: [
+        'When you use a contact or sign-up form on this site (built with SureForms, WPForms or OptinMonster), I receive the details you enter, such as your name, email address and message. I use them only to reply to you or to send what you asked for.',
+      ],
+    },
+    {
+      heading: 'Comments',
+      paragraphs: [
+        'If you leave a comment, the name, email, website, comment text, IP address and browser user agent are stored to help with spam detection. Comments may be checked by an automated spam-filtering service.',
+      ],
+    },
+    {
+      heading: 'Analytics and cookies',
+      paragraphs: [
+        'This site uses Google Analytics (through Google Site Kit) to understand how visitors use it, such as which pages are viewed. Google Analytics uses cookies and collects information such as your approximate location, device and browser. See Google’s Privacy Policy. OptinMonster and the form plugins may also set cookies needed for their features to work. You can block or delete cookies in your browser settings.',
+      ],
+    },
+    {
+      heading: 'Embedded content',
+      paragraphs: [
+        'Pages may include embedded content (for example videos or images) from other websites, which behaves as if you visited that website and may collect data about you.',
+      ],
+    },
+    {
+      heading: 'Sharing and retention',
+      paragraphs: [
+        'I do not sell your personal information. Data is shared only with the services named above that run this site. Form submissions and comments are kept only as long as needed for their purpose.',
+      ],
+    },
+    {
+      heading: 'Your choices',
+      paragraphs: [
+        'You can ask to see, correct or delete personal information I hold about you by emailing me.',
+      ],
+    },
+    {
+      heading: 'Contact',
+      paragraphs: ['Questions about this policy: vibhu.tripathi.work@gmail.com'],
+    },
+  ] satisfies PrivacySection[],
+} as const;
