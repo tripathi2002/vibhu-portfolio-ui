@@ -2,7 +2,7 @@ name: Deploy PHP API to Hostinger
 
 on:
   push:
-    branches: [SIT/PHP/API]
+    branches: [sit/php/api]
 
 jobs:
   deploy:
