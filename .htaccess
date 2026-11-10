@@ -1,0 +1,16 @@
+# Portfolio PHP API – sit/portfolio/api/v1/
+
+Options -Indexes
+
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Pretty route: /contact -> contact.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^contact/?$ contact.php [L,QSA]
+</IfModule>

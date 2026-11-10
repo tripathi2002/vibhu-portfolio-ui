@@ -2,7 +2,7 @@ name: Deploy PHP API to Hostinger
 
 on:
   push:
-    branches: [sit/php/api]
+    branches: [sit/php/api, SIT/PHP/API]
 
 jobs:
   deploy:
@@ -12,9 +12,24 @@ jobs:
 
       - name: Prepare deploy package
         run: |
+          set -euo pipefail
           mkdir -p deploy
-          cp contact.php .htaccess config.example.php deploy/
+
+          for f in contact.php .htaccess config.example.php; do
+            if [ ! -f "$f" ]; then
+              echo "Missing required file: $f" >&2
+              echo "If this is .htaccess, ensure it is committed (not gitignored)." >&2
+              exit 1
+            fi
+            cp "$f" deploy/
+          done
+
+          if [ ! -d src ]; then
+            echo "Missing required directory: src" >&2
+            exit 1
+          fi
           cp -r src deploy/src
+          ls -la deploy
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5

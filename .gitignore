@@ -176,8 +176,8 @@ wp-config.php
 
 # Log files
 
-# htaccess
-/.htaccess
+# Keep API .htaccess in git so Hostinger deploy can ship rewrite rules.
+# (WordPress template used to ignore /.htaccess — do not re-add that.)
 
 # All plugins
 # Note: If you wish to whitelist plugins,
