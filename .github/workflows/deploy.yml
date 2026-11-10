@@ -1,22 +1,30 @@
-name: Deploy to Hostinger
+name: Deploy PHP API to Hostinger
+
 on:
   push:
-    branches: [SIT/angular]
+    branches: [SIT/PHP/API]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npx ng build --configuration development --base-href /sit/portfolio/ui/v1/
-      - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+
+      - name: Prepare deploy package
+        run: |
+          mkdir -p deploy
+          cp contact.php .htaccess config.example.php deploy/
+          cp -r src deploy/src
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: dist/portfolio/browser/
-          server-dir: sit/portfolio/ui/v1/
+          local-dir: ./deploy/
+          server-dir: sit/portfolio/api/v1/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/config.php
