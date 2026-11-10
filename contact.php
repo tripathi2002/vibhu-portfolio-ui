@@ -15,7 +15,17 @@ $config = require $configFile;
 
 Cors::apply($config['allowed_origins'] ?? []);
 
-if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
+$method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
+
+if ($method === 'GET') {
+    Response::json([
+        'ok' => true,
+        'service' => 'portfolio-contact-api',
+        'message' => 'Contact API is online. Send a POST with JSON: firstName, lastName, email, message.',
+    ], 200);
+}
+
+if ($method !== 'POST') {
     Response::json([
         'ok' => false,
         'message' => 'Method not allowed. Use POST.',
