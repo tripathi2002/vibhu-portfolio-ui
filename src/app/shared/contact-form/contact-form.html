@@ -1,20 +1,28 @@
 @if (submitted()) {
-  <p class="contact-form__success" role="status">{{ copy.success }}</p>
+  <p class="contact-form__success" role="status">{{ successMessage() }}</p>
 } @else {
   <form class="contact-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    @if (submitError(); as error) {
+      <p class="contact-form__banner" role="alert">{{ error }}</p>
+    }
+
     <div class="contact-form__row">
       <div class="contact-form__field">
         <label for="firstName">First Name <span aria-hidden="true">*</span></label>
         <input id="firstName" type="text" formControlName="firstName" autocomplete="given-name" />
         @if (form.controls.firstName.touched && form.controls.firstName.invalid) {
-          <span class="contact-form__error">This field is required.</span>
+          <span class="contact-form__error">
+            {{ form.controls.firstName.errors?.['server'] || 'This field is required.' }}
+          </span>
         }
       </div>
       <div class="contact-form__field">
         <label for="lastName">Last Name <span aria-hidden="true">*</span></label>
         <input id="lastName" type="text" formControlName="lastName" autocomplete="family-name" />
         @if (form.controls.lastName.touched && form.controls.lastName.invalid) {
-          <span class="contact-form__error">This field is required.</span>
+          <span class="contact-form__error">
+            {{ form.controls.lastName.errors?.['server'] || 'This field is required.' }}
+          </span>
         }
       </div>
     </div>
@@ -22,13 +30,18 @@
     <div class="contact-form__field">
       <label for="mobile">Mobile</label>
       <input id="mobile" type="tel" formControlName="mobile" autocomplete="tel" />
+      @if (form.controls.mobile.touched && form.controls.mobile.errors?.['server']; as mobileError) {
+        <span class="contact-form__error">{{ mobileError }}</span>
+      }
     </div>
 
     <div class="contact-form__field">
       <label for="email">Email <span aria-hidden="true">*</span></label>
       <input id="email" type="email" formControlName="email" autocomplete="email" />
       @if (form.controls.email.touched && form.controls.email.invalid) {
-        <span class="contact-form__error">Enter a valid email address.</span>
+        <span class="contact-form__error">
+          {{ form.controls.email.errors?.['server'] || 'Enter a valid email address.' }}
+        </span>
       }
     </div>
 
@@ -36,10 +49,18 @@
       <label for="message">Message <span aria-hidden="true">*</span></label>
       <textarea id="message" rows="4" formControlName="message"></textarea>
       @if (form.controls.message.touched && form.controls.message.invalid) {
-        <span class="contact-form__error">This field is required.</span>
+        <span class="contact-form__error">
+          {{ form.controls.message.errors?.['server'] || 'This field is required.' }}
+        </span>
       }
     </div>
 
-    <button class="btn btn--primary contact-form__submit" type="submit">SUBMIT</button>
+    <button
+      class="btn btn--primary contact-form__submit"
+      type="submit"
+      [disabled]="submitting()"
+    >
+      {{ submitting() ? 'SENDING…' : 'SUBMIT' }}
+    </button>
   </form>
 }

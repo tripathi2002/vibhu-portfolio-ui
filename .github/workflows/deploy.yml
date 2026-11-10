@@ -1,7 +1,9 @@
-name: Deploy to Hostinger
+name: Deploy Angular UI to Hostinger
+
 on:
   push:
     branches: [SIT/angular]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest

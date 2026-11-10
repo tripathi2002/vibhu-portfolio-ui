@@ -204,8 +204,8 @@ export const CONTACT_PAGE = {
     title: 'Send me a message',
     description:
       'Whether you wish to discuss new ideas or have a project for me, simply fill this form and I’ll get back to you soon.',
-    success:
-      'Thanks for reaching out. Your message is captured locally for now — the PHP backend will send it by email once we connect it on Hostinger.',
+    success: 'Thanks for reaching out. I will get back to you soon.',
+    error: 'Unable to send your message right now. Please try again or email me directly.',
   },
 } as const;
 
