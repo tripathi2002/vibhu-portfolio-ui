@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/src/Response.php';
 require_once __DIR__ . '/src/Cors.php';
+require_once __DIR__ . '/src/Database.php';
 require_once __DIR__ . '/src/ContactService.php';
 
 $configFile = is_file(__DIR__ . '/config.php')
@@ -21,7 +22,8 @@ if ($method === 'GET') {
     Response::json([
         'ok' => true,
         'service' => 'portfolio-contact-api',
-        'message' => 'Contact API is online. Send a POST with JSON: firstName, lastName, email, message.',
+        'storage' => 'mysql',
+        'message' => 'Contact API is online. POST JSON (firstName, lastName, email, message) to store a row in contact_messages.',
     ], 200);
 }
 

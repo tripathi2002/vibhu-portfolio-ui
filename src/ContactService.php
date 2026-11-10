@@ -9,7 +9,7 @@ final class ContactService
     }
 
     /**
-     * @return array{ok: bool, errors?: array<string, string>, message?: string}
+     * @return array{ok: bool, errors?: array<string, string>, message?: string, id?: int}
      */
     public function handle(array $input): array
     {
@@ -26,16 +26,20 @@ final class ContactService
             return ['ok' => false, 'errors' => $errors];
         }
 
-        $sent = $this->sendMail($data);
-        if (!$sent) {
+        try {
+            $id = $this->store($data);
+        } catch (Throwable $e) {
+            error_log('[contact-api] ' . $e->getMessage());
+
             return [
                 'ok' => false,
-                'message' => 'Unable to send your message right now. Please try again or email me directly.',
+                'message' => 'Unable to save your message right now. Please try again later.',
             ];
         }
 
         return [
             'ok' => true,
+            'id' => $id,
             'message' => 'Thanks for reaching out. I will get back to you soon.',
         ];
     }
@@ -83,46 +87,57 @@ final class ContactService
     /**
      * @param array{firstName: string, lastName: string, mobile: string, email: string, message: string} $data
      */
-    private function sendMail(array $data): bool
+    private function store(array $data): int
     {
-        $to = (string) ($this->config['recipient_email'] ?? '');
-        $fromEmail = (string) ($this->config['from_email'] ?? 'noreply@vibhu.pro');
-        $fromName = (string) ($this->config['from_name'] ?? 'Portfolio Contact');
+        $pdo = Database::connection($this->config);
+        Database::ensureContactTable($pdo);
 
-        if ($to === '' || !filter_var($to, FILTER_VALIDATE_EMAIL)) {
-            return false;
-        }
-
-        $subject = sprintf(
-            'Portfolio contact from %s %s',
-            $data['firstName'],
-            $data['lastName']
+        $stmt = $pdo->prepare(
+            'INSERT INTO contact_messages
+                (first_name, last_name, email, mobile, message, ip_address, user_agent)
+             VALUES
+                (:first_name, :last_name, :email, :mobile, :message, :ip_address, :user_agent)'
         );
 
-        $lines = [
-            'New contact form submission from vibhu.pro',
-            '',
-            'Name: ' . $data['firstName'] . ' ' . $data['lastName'],
-            'Email: ' . $data['email'],
-            'Mobile: ' . ($data['mobile'] !== '' ? $data['mobile'] : '—'),
-            '',
-            'Message:',
-            $data['message'],
-            '',
-            'Sent at: ' . gmdate('Y-m-d H:i:s') . ' UTC',
+        $mobile = $data['mobile'] !== '' ? $data['mobile'] : null;
+        $ip = $this->clientIp();
+        $ua = isset($_SERVER['HTTP_USER_AGENT'])
+            ? mb_substr((string) $_SERVER['HTTP_USER_AGENT'], 0, 512)
+            : null;
+
+        $stmt->execute([
+            ':first_name' => $data['firstName'],
+            ':last_name' => $data['lastName'],
+            ':email' => $data['email'],
+            ':mobile' => $mobile,
+            ':message' => $data['message'],
+            ':ip_address' => $ip,
+            ':user_agent' => $ua,
+        ]);
+
+        return (int) $pdo->lastInsertId();
+    }
+
+    private function clientIp(): ?string
+    {
+        $candidates = [
+            $_SERVER['HTTP_CF_CONNECTING_IP'] ?? null,
+            $_SERVER['HTTP_X_FORWARDED_FOR'] ?? null,
+            $_SERVER['REMOTE_ADDR'] ?? null,
         ];
 
-        $body = implode("\r\n", $lines);
-        $encodedFromName = '=?UTF-8?B?' . base64_encode($fromName) . '?=';
+        foreach ($candidates as $value) {
+            if (!is_string($value) || $value === '') {
+                continue;
+            }
 
-        $headers = [
-            'MIME-Version: 1.0',
-            'Content-Type: text/plain; charset=UTF-8',
-            'From: ' . $encodedFromName . ' <' . $fromEmail . '>',
-            'Reply-To: ' . $data['email'],
-            'X-Mailer: PHP/' . PHP_VERSION,
-        ];
+            // X-Forwarded-For may be a list: client, proxy1, proxy2
+            $ip = trim(explode(',', $value)[0]);
+            if (filter_var($ip, FILTER_VALIDATE_IP)) {
+                return $ip;
+            }
+        }
 
-        return mail($to, '=?UTF-8?B?' . base64_encode($subject) . '?=', $body, implode("\r\n", $headers));
+        return null;
     }
 }

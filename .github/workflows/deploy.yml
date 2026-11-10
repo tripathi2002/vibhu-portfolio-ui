@@ -29,7 +29,13 @@ jobs:
             exit 1
           fi
           cp -r src deploy/src
+
+          if [ -d sql ]; then
+            cp -r sql deploy/sql
+          fi
+
           ls -la deploy
+          ls -la deploy/src
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
