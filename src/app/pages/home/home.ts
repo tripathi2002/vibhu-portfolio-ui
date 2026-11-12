@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
   ABOUT_DETAIL,
@@ -11,6 +11,8 @@ import {
   SITE,
   SKILLS,
 } from '../../core/data/site-content';
+import { PAGE_SEO } from '../../core/data/seo.data';
+import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +21,8 @@ import {
   styleUrl: './home.scss',
 })
 export class Home {
+  private readonly seo = inject(SeoService);
+
   protected readonly hero = HERO;
   protected readonly site = SITE;
   protected readonly aboutIntro = ABOUT_INTRO;
@@ -28,4 +32,9 @@ export class Home {
   protected readonly skills = SKILLS;
   protected readonly experience = EXPERIENCE;
   protected readonly cta = CTA;
+
+  constructor() {
+    const page = PAGE_SEO['home'];
+    this.seo.apply(page, { type: 'home', seo: page });
+  }
 }

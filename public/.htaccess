@@ -1,0 +1,17 @@
+# Angular static / prerender hosting on Hostinger
+# Works under /sit/portfolio/ui/v1/ and later at domain root.
+
+Options -MultiViews
+RewriteEngine On
+
+# Prefer HTTPS when available at host level (Hostinger often handles this separately)
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Serve existing files and directories as-is (prerendered routes, assets)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# SPA fallback for client-side routes without a prerendered directory
+RewriteRule ^ index.html [L]
