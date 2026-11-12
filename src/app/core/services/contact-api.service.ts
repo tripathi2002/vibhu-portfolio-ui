@@ -13,6 +13,7 @@ export interface ContactPayload {
 
 export interface ContactResponse {
   ok: boolean;
+  id?: number;
   message?: string;
   errors?: Record<string, string>;
 }
