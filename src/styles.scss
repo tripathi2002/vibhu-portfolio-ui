@@ -23,6 +23,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -32,6 +33,7 @@ body {
   font-size: 16px;
   line-height: 1.65;
   background: var(--surface);
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -85,6 +87,11 @@ h4 {
   margin: 0.75rem 0 0;
   color: var(--text-muted);
   max-width: 42rem;
+}
+
+.text-center .section-lead,
+.cta__inner .section-lead {
+  margin-inline: auto;
 }
 
 .eyebrow {

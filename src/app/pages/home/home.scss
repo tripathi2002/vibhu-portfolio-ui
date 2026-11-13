@@ -185,7 +185,19 @@
 }
 
 .cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+}
+
+.cta__inner .section-title,
+.cta__inner .section-lead {
+  max-width: 36rem;
+}
+
+.cta__inner .btn {
+  margin-top: 1.25rem;
 }
 
 .cta__email {

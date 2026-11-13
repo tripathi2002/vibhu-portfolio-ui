@@ -1,12 +1,12 @@
 .about__lead {
-  max-width: 48rem;
+  max-width: 52rem;
   margin-top: 0.5rem;
 }
 
 .about__detail {
   display: block;
   margin-top: 2.5rem;
-  max-width: 48rem;
+  max-width: 52rem;
 }
 
 .about__subtitle {
@@ -18,10 +18,19 @@
   color: var(--text-muted);
 }
 
+.about__panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  margin-top: 3.5rem;
+  align-items: start;
+}
+
 .about__skills,
 .about__experience {
-  margin-top: 3.5rem;
-  max-width: 40rem;
+  margin-top: 0;
+  max-width: none;
+  width: 100%;
 }
 
 .about__cta {
@@ -63,4 +72,10 @@
 .experience-card__role {
   margin: 0 0 0.75rem;
   font-size: 1.1rem;
+}
+
+@media (max-width: 921px) {
+  .about__panels {
+    grid-template-columns: 1fr;
+  }
 }

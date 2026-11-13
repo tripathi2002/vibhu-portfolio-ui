@@ -56,7 +56,7 @@ export const ABOUT_INTRO = {
 
 export const ABOUT_DETAIL = {
   title: 'Full-Stack Developer building scalable web apps & APIs',
-  lead: 'I build fast, reliable backends and clean front-ends with Node.js, Express, React and MySQL — currently at Hotwire, where I develop APIs for food-delivery and franchise-management systems.',
+  lead: 'I build fast, reliable backends and clean front-ends with Node.js, Express, React and MySQL — currently at Digitide as a Developer, building and shipping production web applications.',
   body: 'My work centres on building and maintaining backend APIs with Node.js and Express.js, working with relational data in MySQL, and creating responsive interfaces in React. I focus on clean, maintainable code and systems that scale as a product grows.',
 } as const;
 
@@ -93,7 +93,14 @@ export const SKILLS: SkillItem[] = [
 
 export const EXPERIENCE: ExperienceItem[] = [
   {
-    period: '2024–Present',
+    period: 'April 2026–Present',
+    company: 'Digitide',
+    role: 'Developer',
+    description:
+      'Building and shipping full-stack web application features with Node.js, Express, React and MySQL.',
+  },
+  {
+    period: '2024–April 2026',
     company: 'Hotwire',
     role: 'Software Developer',
     description:
@@ -130,7 +137,7 @@ export const ABOUT_PAGE = {
   detail: {
     title: 'Full-stack developer focused on reliable APIs and web apps',
     body: 'I work across the stack with Node.js, Express, React and MySQL, turning requirements into clean, maintainable backend services and responsive user interfaces.',
-    note: 'As a Software Developer at Hotwire, I focus on well-structured APIs, efficient database queries and front ends that are simple to use and easy to maintain.',
+    note: 'As a Developer at Digitide, I focus on well-structured APIs, efficient database queries and front ends that are simple to use and easy to maintain.',
   },
   skillsIntro:
     'I believe learning never stops. I keep exploring new tools and practices that help me build better software, faster.',
@@ -147,11 +154,18 @@ export const ABOUT_SKILLS: SkillItem[] = [
 
 export const ABOUT_EXPERIENCE: ExperienceItem[] = [
   {
-    period: '2024–Present',
+    period: 'April 2026–Present',
+    company: 'Digitide',
+    role: 'Developer',
+    description:
+      'Building and shipping full-stack web application features with Node.js, Express, React and MySQL.',
+  },
+  {
+    period: '2024–April 2026',
     company: 'Hotwire',
     role: 'Software Developer',
     description:
-      'Building and maintaining backend APIs and web application features with Node.js, Express, React and MySQL.',
+      'Built and maintained backend APIs and web application features with Node.js, Express, React and MySQL.',
   },
 ];
 

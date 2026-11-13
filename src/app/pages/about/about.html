@@ -11,24 +11,26 @@
       <p class="about__note">{{ page.detail.note }}</p>
     </div>
 
-    <div class="about__skills">
-      <app-skill-bars
-        [skills]="skills"
-        title="My Skills"
-        [intro]="page.skillsIntro"
-      />
-    </div>
+    <div class="about__panels">
+      <div class="about__skills">
+        <app-skill-bars
+          [skills]="skills"
+          title="My Skills"
+          [intro]="page.skillsIntro"
+        />
+      </div>
 
-    <div class="about__experience">
-      <h2 class="section-title">Experience</h2>
-      @for (job of experience; track job.company) {
-        <article class="experience-card">
-          <p class="experience-card__period">{{ job.period }}</p>
-          <p class="experience-card__company">{{ job.company }}</p>
-          <h3 class="experience-card__role">{{ job.role }}</h3>
-          <p>{{ job.description }}</p>
-        </article>
-      }
+      <div class="about__experience">
+        <h2 class="section-title">Experience</h2>
+        @for (job of experience; track job.company) {
+          <article class="experience-card">
+            <p class="experience-card__period">{{ job.period }}</p>
+            <p class="experience-card__company">{{ job.company }}</p>
+            <h3 class="experience-card__role">{{ job.role }}</h3>
+            <p>{{ job.description }}</p>
+          </article>
+        }
+      </div>
     </div>
 
     <div class="about__cta">
