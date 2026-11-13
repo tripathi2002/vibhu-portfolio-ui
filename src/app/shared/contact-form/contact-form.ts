@@ -28,9 +28,22 @@ export class ContactForm {
     mobile: [''],
     email: ['', [Validators.required, Validators.email]],
     message: ['', Validators.required],
+    website: [''],
   });
 
+  protected isInvalid(controlName: keyof typeof this.form.controls): boolean {
+    const control = this.form.controls[controlName];
+    return control.touched && control.invalid;
+  }
+
   protected submit(): void {
+    if (this.form.controls.website.value.trim()) {
+      this.submitted.set(true);
+      this.successMessage.set(this.copy.success);
+      this.form.reset();
+      return;
+    }
+
     if (this.form.invalid || this.submitting()) {
       this.form.markAllAsTouched();
       return;
@@ -39,7 +52,9 @@ export class ContactForm {
     this.submitting.set(true);
     this.submitError.set(null);
 
-    this.contactApi.submit(this.form.getRawValue()).subscribe({
+    const { website: _honeypot, ...payload } = this.form.getRawValue();
+
+    this.contactApi.submit(payload).subscribe({
       next: (res) => {
         this.submitting.set(false);
         if (res.ok) {

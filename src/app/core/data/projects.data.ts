@@ -7,7 +7,7 @@ export interface ShowcaseProject {
 
 export const LATEST_WORK: ShowcaseProject[] = [
   {
-    title: 'File UPLOAD',
+    title: 'File Upload',
     image: 'images/project-file-upload.png',
     href: 'https://vibhu.pro/file-app/',
     alt: 'Screenshot of the File Upload project',
@@ -20,14 +20,4 @@ export const LATEST_WORK: ShowcaseProject[] = [
   },
 ];
 
-export const PORTFOLIO_GALLERY: { src: string; alt: string }[] = [
-  { src: 'images/portfolio-01.jpg', alt: 'Portfolio sample 1' },
-  { src: 'images/portfolio-02.jpg', alt: 'Portfolio sample 2' },
-  { src: 'images/portfolio-03.jpg', alt: 'Portfolio sample 3' },
-  { src: 'images/portfolio-04.jpg', alt: 'Portfolio sample 4' },
-  { src: 'images/portfolio-05.jpg', alt: 'Portfolio sample 5' },
-  { src: 'images/portfolio-06.jpg', alt: 'Portfolio sample 6' },
-  { src: 'images/portfolio-07.jpg', alt: 'Portfolio sample 7' },
-  { src: 'images/portfolio-08.jpg', alt: 'Portfolio sample 8' },
-  { src: 'images/portfolio-09.jpg', alt: 'Portfolio sample 9' },
-];
+export const PORTFOLIO_GALLERY: ShowcaseProject[] = [...LATEST_WORK];

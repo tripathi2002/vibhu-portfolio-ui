@@ -11,7 +11,7 @@ export interface PageSeo {
 
 const brand = `${SITE.name} – Full-Stack Developer`;
 
-export const DEFAULT_OG_IMAGE = 'images/hero.png';
+export const DEFAULT_OG_IMAGE = 'images/hero.webp';
 
 export const PAGE_SEO: Record<string, PageSeo> = {
   home: {

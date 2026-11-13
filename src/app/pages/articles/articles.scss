@@ -1,3 +1,7 @@
+.articles-page__title {
+  margin-bottom: 2rem;
+}
+
 .articles-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -35,6 +39,10 @@
 }
 
 .article-card__more {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 12px 0;
   font-weight: 600;
   text-decoration: none;
 }

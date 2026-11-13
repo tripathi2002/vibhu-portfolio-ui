@@ -5,6 +5,7 @@ import { ArticleDetail } from './pages/article-detail/article-detail';
 import { Articles } from './pages/articles/articles';
 import { Contact } from './pages/contact/contact';
 import { Home } from './pages/home/home';
+import { NotFound } from './pages/not-found/not-found';
 import { Portfolio } from './pages/portfolio/portfolio';
 import { PrivacyPolicy } from './pages/privacy-policy/privacy-policy';
 import { Services } from './pages/services/services';
@@ -48,7 +49,11 @@ export const routes: Routes = [
         redirectTo: `articles/${slug}`,
         pathMatch: 'full' as const,
       })),
+      {
+        path: '**',
+        component: NotFound,
+        title: 'Page not found | Vibhu Tripathi – Full-Stack Developer',
+      },
     ],
   },
-  { path: '**', redirectTo: '' },
 ];

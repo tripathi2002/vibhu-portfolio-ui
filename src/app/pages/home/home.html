@@ -19,13 +19,13 @@
     </div>
 
     <div class="hero__media">
-      <img src="images/hero.png" alt="Portrait of Vibhu Tripathi" width="670" height="670" />
+      <img src="images/hero.webp" alt="Portrait of Vibhu Tripathi" width="700" height="700" />
     </div>
   </div>
 </section>
 
 <section class="section section--tight">
-  <div class="container narrow">
+  <div class="container">
     <p class="eyebrow">{{ aboutIntro.label }}</p>
     <h2 class="section-title">{{ aboutIntro.heading }}</h2>
   </div>
@@ -53,7 +53,7 @@
     <div class="service-grid">
       @for (service of services; track service.title) {
         <article class="service-card">
-          <h4 class="service-card__title">{{ service.title }}</h4>
+          <h3 class="service-card__title">{{ service.title }}</h3>
           <p>{{ service.description }}</p>
         </article>
       }

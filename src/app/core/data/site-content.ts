@@ -211,7 +211,7 @@ export const CONTACT_PAGE = {
 
 export const PORTFOLIO_PAGE = {
   title: 'Portfolio',
-  subtitle: 'Selected projects coming soon',
+  subtitle: 'Selected projects',
 } as const;
 
 export interface PrivacySection {

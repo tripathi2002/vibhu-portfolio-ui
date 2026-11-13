@@ -35,6 +35,10 @@
   }
 
   a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 12px 0;
     color: var(--text);
     text-decoration: none;
 

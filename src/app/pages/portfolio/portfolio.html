@@ -14,11 +14,21 @@
     <div class="portfolio-layout__main">
       <h2 class="section-title">{{ page.subtitle }}</h2>
 
-      <div class="portfolio-masonry">
-        @for (item of gallery; track item.src) {
-          <figure class="portfolio-masonry__item">
-            <img [src]="item.src" [alt]="item.alt" loading="lazy" />
-          </figure>
+      <div class="portfolio-projects">
+        @for (item of gallery; track item.href) {
+          <article class="portfolio-project">
+            <a
+              class="portfolio-project__media"
+              [href]="item.href"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img [src]="item.image" [alt]="item.alt" loading="lazy" />
+            </a>
+            <h3 class="portfolio-project__title">
+              <a [href]="item.href" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+            </h3>
+          </article>
         }
       </div>
 

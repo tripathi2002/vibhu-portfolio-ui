@@ -13,10 +13,10 @@ export const ARTICLES: Article[] = [
     slug: 'my-journey-as-a-full-stack-developer',
     title: 'My Journey as a Full-Stack Developer',
     date: '2026-01-24',
-    category: 'Uncategorized',
+    category: 'Career',
     excerpt:
       'Building software was never just about writing code for me—it has always been about solving real problems. Over the past',
-    image: 'images/article-journey.png',
+    image: 'images/article-journey.webp',
     content: `
 <p>Building software was never just about writing code for me—it has always been about solving real problems. Over the past few years, I’ve grown from learning the basics of web development to working professionally on production-level applications. This article shares my journey as a full-stack developer and what I’ve learned along the way.</p>
 <h2>How It All Started</h2>
