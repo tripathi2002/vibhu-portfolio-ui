@@ -17,7 +17,8 @@ jobs:
       - run: npx ng build --configuration development --base-href /sit/portfolio/ui/v1/
 
       - name: Force SIT noindex robots.txt
-        run: printf 'User-agent: *\nDisallow: /\n' > dist/portfolio/browser/robots.txt
+        run: |
+          printf 'User-agent: *\nDisallow: /\n' > dist/portfolio/browser/robots.txt
 
       - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
