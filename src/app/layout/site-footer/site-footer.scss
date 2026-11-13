@@ -25,10 +25,11 @@
   a {
     display: inline-flex;
     align-items: center;
-    min-height: 44px;
-    padding: 12px 0;
+    min-height: 2rem;
+    padding: 0.2rem 0;
     color: var(--text-muted);
     text-decoration: none;
+    line-height: 1.4;
 
     &:hover {
       color: var(--accent);
@@ -36,6 +37,17 @@
   }
 
   li + li {
+    margin-top: 0.35rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-footer__list a {
+    min-height: 44px;
+    padding: 0.55rem 0;
+  }
+
+  .site-footer__list li + li {
     margin-top: 0;
   }
 }

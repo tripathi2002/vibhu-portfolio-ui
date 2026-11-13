@@ -1,22 +1,68 @@
-.articles-page__title {
-  margin-bottom: 2rem;
-}
-
 .articles-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2rem;
+  gap: 1.75rem;
+  align-items: stretch;
 }
 
-.article-card__media img {
+.article-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.article-card__media {
+  display: block;
+  background: var(--surface-muted);
+  text-decoration: none;
+}
+
+.article-card__media img,
+.article-card__placeholder {
   display: block;
   width: 100%;
-  border-radius: var(--radius);
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.article-card__placeholder {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.55), transparent 45%),
+    linear-gradient(145deg, #d7ebf8 0%, #9fd0ea 55%, #6bb5db 100%);
+}
+
+.article-card__placeholder-mark {
+  display: grid;
+  place-items: center;
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--accent-strong);
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.article-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.25rem 1.25rem 1.35rem;
 }
 
 .article-card__title {
-  margin: 1rem 0 0.5rem;
-  font-size: 1.35rem;
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
 
   a {
     color: inherit;
@@ -36,19 +82,25 @@
 
 .article-card__excerpt {
   margin: 0 0 1rem;
+  color: var(--text-muted);
+  flex: 1;
 }
 
 .article-card__more {
   display: inline-flex;
   align-items: center;
-  min-height: 44px;
-  padding: 12px 0;
+  margin-top: auto;
   font-weight: 600;
   text-decoration: none;
+
+  &::after {
+    content: ' →';
+  }
 }
 
 @media (max-width: 1024px) {
   .articles-grid {
     grid-template-columns: 1fr;
+    max-width: 40rem;
   }
 }

@@ -6,23 +6,22 @@
 
     @for (section of policy.sections; track section.heading) {
       <h2>{{ section.heading }}</h2>
-      @for (paragraph of section.paragraphs; track paragraph) {
-        @if (section.heading === 'Contact') {
-          <p>
-            Questions about this policy:
-            <a [href]="'mailto:' + email">{{ email }}</a>
-          </p>
-        } @else if (section.heading === 'Analytics and cookies') {
-          <p>
-            This site uses Google Analytics (through Google Site Kit) to understand how visitors use
-            it, such as which pages are viewed. Google Analytics uses cookies and collects
-            information such as your approximate location, device and browser. See
-            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer"
-              >Google’s Privacy Policy</a
-            >. OptinMonster and the form plugins may also set cookies needed for their features to
-            work. You can block or delete cookies in your browser settings.
-          </p>
-        } @else {
+      @if (section.heading === 'Contact') {
+        <p>
+          Questions about this policy:
+          <a [href]="'mailto:' + email">{{ email }}</a>
+        </p>
+      } @else if (section.heading === 'Analytics and cookies') {
+        <p>
+          This site may use privacy-friendly analytics or standard hosting logs to understand traffic.
+          If Google Analytics is enabled, it may use cookies and collect information such as your
+          approximate location, device and browser. See
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer"
+            >Google’s Privacy Policy</a
+          >. You can block or delete cookies in your browser settings.
+        </p>
+      } @else {
+        @for (paragraph of section.paragraphs; track paragraph) {
           <p>{{ paragraph }}</p>
         }
       }

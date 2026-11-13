@@ -1,13 +1,16 @@
 .article-detail__back {
-  display: inline-block;
-  margin-bottom: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
   text-decoration: none;
   font-weight: 600;
 }
 
 .article-detail__title {
   margin: 0;
+  font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1.15;
 }
 
 .article-detail__meta {
@@ -19,8 +22,10 @@
   width: 100%;
   margin-bottom: 2rem;
   border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
 }
 
 .article-detail__body {
   display: block;
+  font-size: 1.05rem;
 }

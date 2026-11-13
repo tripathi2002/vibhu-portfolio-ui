@@ -15,7 +15,7 @@ export const ARTICLES: Article[] = [
     date: '2026-01-24',
     category: 'Career',
     excerpt:
-      'Building software was never just about writing code for me—it has always been about solving real problems. Over the past',
+      'Building software was never just about writing code for me — it has always been about solving real problems. Here’s how I grew into full-stack work.',
     image: 'images/article-journey.webp',
     content: `
 <p>Building software was never just about writing code for me—it has always been about solving real problems. Over the past few years, I’ve grown from learning the basics of web development to working professionally on production-level applications. This article shares my journey as a full-stack developer and what I’ve learned along the way.</p>
@@ -51,7 +51,7 @@ export const ARTICLES: Article[] = [
     date: '2026-01-02',
     category: 'Career',
     excerpt:
-      'Context While building my portfolio, I didn’t want it to be just a visual site that looks good today and',
+      'I treated my portfolio like a product: easy to scale, update, and maintain — not just a site that looks good today.',
     image: null,
     content: `
 <h3><strong>Context</strong></h3>
@@ -89,7 +89,7 @@ export const ARTICLES: Article[] = [
     date: '2025-12-29',
     category: 'Career',
     excerpt:
-      'Most developers treat a portfolio as a static page — a list of skills, a few projects, and a contact',
+      'Most portfolios are static showcases. I’m building mine in public to document how I think, learn, and make decisions.',
     image: null,
     content: `
 <p>Most developers treat a portfolio as a static page — a list of skills, a few projects, and a contact form.<br>I decided to do it differently.</p>

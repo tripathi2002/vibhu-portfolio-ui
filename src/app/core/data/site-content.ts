@@ -68,17 +68,17 @@ export const SERVICES_INTRO = {
 
 export const SERVICES: ServiceItem[] = [
   {
-    title: 'BACKEND & API DEVELOPMENT',
+    title: 'Backend & API Development',
     description:
       'I design and build backend APIs with Node.js and Express.js, backed by MySQL, so your product handles its data and traffic reliably.',
   },
   {
-    title: 'WEB DEVELOPMENT',
+    title: 'Web Development',
     description:
       'I build responsive front-ends in React.js and connect them to solid backends, taking a web application from idea to a working product.',
   },
   {
-    title: 'FULL-STACK APPLICATIONS',
+    title: 'Full-Stack Applications',
     description:
       'I build complete web applications end to end — database, server-side logic and user interface — using JavaScript across the stack.',
   },
@@ -93,7 +93,7 @@ export const SKILLS: SkillItem[] = [
 
 export const EXPERIENCE: ExperienceItem[] = [
   {
-    period: '2024-Present',
+    period: '2024–Present',
     company: 'Hotwire',
     role: 'Software Developer',
     description:
@@ -147,8 +147,8 @@ export const ABOUT_SKILLS: SkillItem[] = [
 
 export const ABOUT_EXPERIENCE: ExperienceItem[] = [
   {
-    period: '2024-2025',
-    company: 'Hotwire Global',
+    period: '2024–Present',
+    company: 'Hotwire',
     role: 'Software Developer',
     description:
       'Building and maintaining backend APIs and web application features with Node.js, Express, React and MySQL.',
@@ -167,32 +167,32 @@ export const SERVICES_PAGE = {
 
 export const SERVICES_DETAILED: ServiceItem[] = [
   {
-    title: 'BACKEND & API DEVELOPMENT',
+    title: 'Backend & API Development',
     description:
       'Secure, well-documented REST APIs and backend services built with Node.js and Express, backed by efficient MySQL data models.',
   },
   {
-    title: 'WEB DEVELOPMENT',
+    title: 'Web Development',
     description:
       'Responsive, maintainable web applications built with React, with clean code and a focus on performance and usability.',
   },
   {
-    title: 'FULL-STACK APPLICATIONS',
+    title: 'Full-Stack Applications',
     description:
       'End-to-end applications that connect a React front end to Node.js and Express APIs and a MySQL database, delivered as one cohesive product.',
   },
   {
-    title: 'DATABASE DESIGN',
+    title: 'Database Design',
     description:
       'Structured MySQL schemas and queries designed for data integrity and speed, so applications stay fast as they grow.',
   },
   {
-    title: 'API INTEGRATION',
+    title: 'API Integration',
     description:
       'Connecting web apps to third-party services and internal systems through reliable, well-tested API integrations.',
   },
   {
-    title: 'MAINTENANCE & IMPROVEMENTS',
+    title: 'Maintenance & Improvements',
     description:
       'Debugging, refactoring and performance improvements for existing Node.js and React codebases.',
   },
@@ -229,19 +229,13 @@ export const PRIVACY_POLICY = {
     {
       heading: 'Information you give me',
       paragraphs: [
-        'When you use a contact or sign-up form on this site (built with SureForms, WPForms or OptinMonster), I receive the details you enter, such as your name, email address and message. I use them only to reply to you or to send what you asked for.',
-      ],
-    },
-    {
-      heading: 'Comments',
-      paragraphs: [
-        'If you leave a comment, the name, email, website, comment text, IP address and browser user agent are stored to help with spam detection. Comments may be checked by an automated spam-filtering service.',
+        'When you use the contact form on this site, I receive the details you enter, such as your name, email address, phone number and message. I use them only to reply to you.',
       ],
     },
     {
       heading: 'Analytics and cookies',
       paragraphs: [
-        'This site uses Google Analytics (through Google Site Kit) to understand how visitors use it, such as which pages are viewed. Google Analytics uses cookies and collects information such as your approximate location, device and browser. See Google’s Privacy Policy. OptinMonster and the form plugins may also set cookies needed for their features to work. You can block or delete cookies in your browser settings.',
+        'This site may use privacy-friendly analytics or standard hosting logs to understand traffic. If Google Analytics is enabled, it may use cookies and collect information such as your approximate location, device and browser. See Google’s Privacy Policy. You can block or delete cookies in your browser settings.',
       ],
     },
     {
@@ -253,7 +247,7 @@ export const PRIVACY_POLICY = {
     {
       heading: 'Sharing and retention',
       paragraphs: [
-        'I do not sell your personal information. Data is shared only with the services named above that run this site. Form submissions and comments are kept only as long as needed for their purpose.',
+        'I do not sell your personal information. Contact form submissions are kept only as long as needed to respond and follow up.',
       ],
     },
     {

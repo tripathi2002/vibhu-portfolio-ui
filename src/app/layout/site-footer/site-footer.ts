@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { FOOTER, SERVICES, SITE, SOCIAL_LINKS } from '../../core/data/site-content';
+import { FOOTER, SITE, SOCIAL_LINKS } from '../../core/data/site-content';
 
 @Component({
   selector: 'app-site-footer',
@@ -12,8 +12,9 @@ export class SiteFooter {
   protected readonly site = SITE;
   protected readonly footer = FOOTER;
   protected readonly social = SOCIAL_LINKS;
-  protected readonly serviceLinks = SERVICES.map((s) => ({
-    label: s.title.replace(/\u200b/g, ''),
-    path: '/services',
-  }));
+  protected readonly serviceLinks = [
+    { label: 'Backend & APIs', path: '/services' },
+    { label: 'Web Development', path: '/services' },
+    { label: 'Full-Stack Apps', path: '/services' },
+  ];
 }

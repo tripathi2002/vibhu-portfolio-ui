@@ -3,10 +3,11 @@ import { RouterLink } from '@angular/router';
 import { ARTICLES, formatArticleDate } from '../../core/data/articles.data';
 import { PAGE_SEO } from '../../core/data/seo.data';
 import { SeoService } from '../../core/services/seo.service';
+import { PageHero } from '../../shared/page-hero/page-hero';
 
 @Component({
   selector: 'app-articles',
-  imports: [RouterLink],
+  imports: [RouterLink, PageHero],
   templateUrl: './articles.html',
   styleUrl: './articles.scss',
 })

@@ -1,24 +1,30 @@
 <section class="section">
   <div class="container">
-    <h1 class="section-title articles-page__title">Articles</h1>
+    <app-page-hero title="Articles" />
 
     <div class="articles-grid">
       @for (article of articles; track article.slug) {
         <article class="article-card">
-          @if (article.image; as image) {
-            <a class="article-card__media" [routerLink]="['/articles', article.slug]">
+          <a class="article-card__media" [routerLink]="['/articles', article.slug]">
+            @if (article.image; as image) {
               <img [src]="image" [alt]="article.title" loading="lazy" />
-            </a>
-          }
-          <h2 class="article-card__title">
-            <a [routerLink]="['/articles', article.slug]">{{ article.title }}</a>
-          </h2>
-          <p class="article-card__meta">
-            <span>{{ article.category }}</span> /
-            <time [dateTime]="article.date">{{ formatDate(article.date) }}</time>
-          </p>
-          <p class="article-card__excerpt">{{ article.excerpt }}</p>
-          <a class="article-card__more" [routerLink]="['/articles', article.slug]">Read more »</a>
+            } @else {
+              <span class="article-card__placeholder" aria-hidden="true">
+                <span class="article-card__placeholder-mark">{{ article.title.charAt(0) }}</span>
+              </span>
+            }
+          </a>
+          <div class="article-card__body">
+            <h2 class="article-card__title">
+              <a [routerLink]="['/articles', article.slug]">{{ article.title }}</a>
+            </h2>
+            <p class="article-card__meta">
+              <span>{{ article.category }}</span> /
+              <time [dateTime]="article.date">{{ formatDate(article.date) }}</time>
+            </p>
+            <p class="article-card__excerpt">{{ article.excerpt }}</p>
+            <a class="article-card__more" [routerLink]="['/articles', article.slug]">Read more</a>
+          </div>
         </article>
       }
     </div>

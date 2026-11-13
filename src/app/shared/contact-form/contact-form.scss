@@ -44,6 +44,11 @@
       border-color: var(--accent);
     }
   }
+
+  textarea {
+    resize: vertical;
+    min-height: 7rem;
+  }
 }
 
 .contact-form__error {

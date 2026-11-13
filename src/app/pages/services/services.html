@@ -17,22 +17,20 @@
     </div>
 
     <div class="services__work">
-      <div class="section-head section-head--split">
-        <h2 class="section-title">{{ page.latestWorkTitle }}</h2>
-        <img class="section-head__arrow" src="images/arrow.png" alt="" width="80" height="43" />
-      </div>
+      <h2 class="section-title">{{ page.latestWorkTitle }}</h2>
 
       <div class="work-grid">
         @for (project of latestWork; track project.href) {
           <article class="work-card">
             <img [src]="project.image" [alt]="project.alt" loading="lazy" />
+            <h3 class="work-card__title">{{ project.title }}</h3>
             <a
-              class="btn btn--primary"
+              class="btn btn--outline"
               [href]="project.href"
               target="_blank"
               rel="noopener noreferrer"
             >
-              {{ project.title }}
+              View project
             </a>
           </article>
         }

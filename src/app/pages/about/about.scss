@@ -1,11 +1,12 @@
 .about__lead {
-  max-width: 54rem;
+  max-width: 48rem;
   margin-top: 0.5rem;
 }
 
 .about__detail {
   display: block;
   margin-top: 2.5rem;
+  max-width: 48rem;
 }
 
 .about__subtitle {
@@ -19,20 +20,32 @@
 
 .about__skills,
 .about__experience {
-  margin-top: 3rem;
+  margin-top: 3.5rem;
+  max-width: 40rem;
 }
 
-.about__footer {
-  margin-top: 3rem;
+.about__cta {
+  margin-top: 4rem;
+  padding: 2rem;
+  border-radius: var(--radius);
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
 }
 
-.about__social {
-  display: inline-block;
-  margin: 1rem 0 1.25rem;
+.about__cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
 }
 
 .experience-card {
   margin-top: 1.5rem;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
 }
 
 .experience-card__period {
