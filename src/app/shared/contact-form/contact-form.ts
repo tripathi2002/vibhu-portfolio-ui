@@ -28,7 +28,7 @@ export class ContactForm {
     mobile: [''],
     email: ['', [Validators.required, Validators.email]],
     message: ['', Validators.required],
-    website: [''],
+    companyUrl: [''],
   });
 
   protected isInvalid(controlName: keyof typeof this.form.controls): boolean {
@@ -37,10 +37,9 @@ export class ContactForm {
   }
 
   protected submit(): void {
-    if (this.form.controls.website.value.trim()) {
-      this.submitted.set(true);
-      this.successMessage.set(this.copy.success);
-      this.form.reset();
+    // Honeypot filled → pretend success without calling the API.
+    if (this.form.controls.companyUrl.value.trim()) {
+      this.markSuccess(this.copy.success);
       return;
     }
 
@@ -52,41 +51,43 @@ export class ContactForm {
     this.submitting.set(true);
     this.submitError.set(null);
 
-    const { website: _honeypot, ...payload } = this.form.getRawValue();
+    const { companyUrl: _honeypot, ...payload } = this.form.getRawValue();
 
     this.contactApi.submit(payload).subscribe({
       next: (res) => {
         this.submitting.set(false);
         if (res.ok) {
-          this.successMessage.set(res.message ?? this.copy.success);
-          this.submitted.set(true);
-          this.form.reset();
+          this.markSuccess(res.message ?? this.copy.success);
           return;
         }
 
         this.submitError.set(res.message ?? this.copy.error);
-        if (res.errors) {
-          for (const [key, message] of Object.entries(res.errors)) {
-            const control = this.form.get(key);
-            if (control) {
-              control.setErrors({ server: message });
-            }
-          }
-        }
+        this.applyServerErrors(res.errors);
       },
       error: (err: HttpErrorResponse) => {
         this.submitting.set(false);
         const body = err.error as { message?: string; errors?: Record<string, string> } | null;
         this.submitError.set(body?.message ?? this.copy.error);
-        if (body?.errors) {
-          for (const [key, message] of Object.entries(body.errors)) {
-            const control = this.form.get(key);
-            if (control) {
-              control.setErrors({ server: message });
-            }
-          }
-        }
+        this.applyServerErrors(body?.errors);
       },
     });
+  }
+
+  private markSuccess(message: string): void {
+    this.successMessage.set(message);
+    this.submitted.set(true);
+    this.form.reset();
+  }
+
+  private applyServerErrors(errors?: Record<string, string>): void {
+    if (!errors) {
+      return;
+    }
+    for (const [key, message] of Object.entries(errors)) {
+      const control = this.form.get(key);
+      if (control) {
+        control.setErrors({ server: message });
+      }
+    }
   }
 }

@@ -56,6 +56,15 @@
   border-radius: 1rem;
 }
 
+.about__heading {
+  max-width: 52rem;
+}
+
+.about-detail {
+  margin-top: 2rem;
+  max-width: 52rem;
+}
+
 .about-detail__title {
   margin: 0 0 1rem;
   font-size: clamp(1.35rem, 3vw, 1.75rem);
@@ -69,7 +78,6 @@
 
 .about-detail__body {
   margin: 0 0 1.5rem;
-  max-width: 52rem;
 }
 
 .section-head--split {

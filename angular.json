@@ -60,6 +60,30 @@
               "sourceMap": false,
               "extractLicenses": true
             },
+            "sit": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all",
+              "optimization": true,
+              "sourceMap": false,
+              "extractLicenses": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.sit.ts"
+                }
+              ]
+            },
             "development": {
               "optimization": false,
               "extractLicenses": false,
@@ -79,6 +103,9 @@
           "configurations": {
             "production": {
               "buildTarget": "portfolio:build:production"
+            },
+            "sit": {
+              "buildTarget": "portfolio:build:sit"
             },
             "development": {
               "buildTarget": "portfolio:build:development"
