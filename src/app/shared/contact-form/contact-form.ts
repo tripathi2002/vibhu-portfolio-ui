@@ -37,13 +37,14 @@ export class ContactForm {
   }
 
   protected submit(): void {
-    // Honeypot filled → pretend success without calling the API.
-    if (this.form.controls.companyUrl.value.trim()) {
-      this.markSuccess(this.copy.success);
+    if (this.submitting()) {
       return;
     }
 
-    if (this.form.invalid || this.submitting()) {
+    const honeypotFilled = this.form.controls.companyUrl.value.trim() !== '';
+
+    // Honeypot filled → still POST so the API can fake-success; skip client validation.
+    if (!honeypotFilled && this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }
@@ -51,7 +52,7 @@ export class ContactForm {
     this.submitting.set(true);
     this.submitError.set(null);
 
-    const { companyUrl: _honeypot, ...payload } = this.form.getRawValue();
+    const payload = this.form.getRawValue();
 
     this.contactApi.submit(payload).subscribe({
       next: (res) => {
@@ -66,7 +67,7 @@ export class ContactForm {
       },
       error: (err: HttpErrorResponse) => {
         this.submitting.set(false);
-        const body = err.error as { message?: string; errors?: Record<string, string> } | null;
+        const body = this.parseErrorBody(err);
         this.submitError.set(body?.message ?? this.copy.error);
         this.applyServerErrors(body?.errors);
       },
@@ -76,7 +77,31 @@ export class ContactForm {
   private markSuccess(message: string): void {
     this.successMessage.set(message);
     this.submitted.set(true);
-    this.form.reset();
+    this.form.reset({
+      firstName: '',
+      lastName: '',
+      mobile: '',
+      email: '',
+      message: '',
+      companyUrl: '',
+    });
+  }
+
+  private parseErrorBody(
+    err: HttpErrorResponse,
+  ): { message?: string; errors?: Record<string, string> } | null {
+    const raw = err.error;
+    if (raw && typeof raw === 'object') {
+      return raw as { message?: string; errors?: Record<string, string> };
+    }
+    if (typeof raw === 'string' && raw.trim() !== '') {
+      try {
+        return JSON.parse(raw) as { message?: string; errors?: Record<string, string> };
+      } catch {
+        return { message: raw };
+      }
+    }
+    return null;
   }
 
   private applyServerErrors(errors?: Record<string, string>): void {

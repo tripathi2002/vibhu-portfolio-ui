@@ -9,6 +9,8 @@ export interface ContactPayload {
   mobile: string;
   email: string;
   message: string;
+  /** Honeypot — must stay empty for humans; server rejects filled values as fake success. */
+  companyUrl?: string;
 }
 
 export interface ContactResponse {

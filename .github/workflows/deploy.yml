@@ -25,5 +25,12 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
           local-dir: dist/portfolio/browser/
           server-dir: sit/portfolio/ui/v1/
+          exclude: |
+            **/.git
+            **/.git/**
+            **/.gitignore
+            **/.env
+            **/.env.*

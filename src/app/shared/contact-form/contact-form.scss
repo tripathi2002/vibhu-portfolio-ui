@@ -1,18 +1,20 @@
 .contact-form {
+  position: relative;
   display: grid;
   gap: 1rem;
 }
 
 .contact-form__honeypot {
   position: absolute;
+  left: -10000px;
+  top: 0;
   width: 1px;
   height: 1px;
-  padding: 0;
-  margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+  pointer-events: none;
 }
 
 .contact-form__row {
