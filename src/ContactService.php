@@ -13,6 +13,15 @@ final class ContactService
      */
     public function handle(array $input): array
     {
+        // Honeypot: bots that fill hidden companyUrl are rejected without writing.
+        $honeypot = $this->clean($input['companyUrl'] ?? '');
+        if ($honeypot !== '') {
+            return [
+                'ok' => true,
+                'message' => 'Thanks for reaching out. I will get back to you soon.',
+            ];
+        }
+
         $data = [
             'firstName' => $this->clean($input['firstName'] ?? ''),
             'lastName' => $this->clean($input['lastName'] ?? ''),
@@ -53,6 +62,11 @@ final class ContactService
         return trim(strip_tags($value));
     }
 
+    private function length(string $value): int
+    {
+        return function_exists('mb_strlen') ? mb_strlen($value) : strlen($value);
+    }
+
     /**
      * @param array{firstName: string, lastName: string, mobile: string, email: string, message: string} $data
      * @return array<string, string>
@@ -61,20 +75,28 @@ final class ContactService
     {
         $errors = [];
 
-        if ($data['firstName'] === '' || mb_strlen($data['firstName']) > 100) {
+        if ($data['firstName'] === '') {
             $errors['firstName'] = 'First name is required.';
+        } elseif ($this->length($data['firstName']) > 100) {
+            $errors['firstName'] = 'First name is too long.';
         }
 
-        if ($data['lastName'] === '' || mb_strlen($data['lastName']) > 100) {
+        if ($data['lastName'] === '') {
             $errors['lastName'] = 'Last name is required.';
+        } elseif ($this->length($data['lastName']) > 100) {
+            $errors['lastName'] = 'Last name is too long.';
         }
 
         if ($data['email'] === '' || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
             $errors['email'] = 'A valid email is required.';
+        } elseif ($this->length($data['email']) > 255) {
+            $errors['email'] = 'Email is too long.';
         }
 
-        if ($data['message'] === '' || mb_strlen($data['message']) > 5000) {
+        if ($data['message'] === '') {
             $errors['message'] = 'Message is required.';
+        } elseif ($this->length($data['message']) > 5000) {
+            $errors['message'] = 'Message is too long.';
         }
 
         if ($data['mobile'] !== '' && !preg_match('/^[0-9+\-\s()]{7,20}$/', $data['mobile'])) {
@@ -90,7 +112,6 @@ final class ContactService
     private function store(array $data): int
     {
         $pdo = Database::connection($this->config);
-        Database::ensureContactTable($pdo);
 
         $stmt = $pdo->prepare(
             'INSERT INTO contact_messages
@@ -101,9 +122,13 @@ final class ContactService
 
         $mobile = $data['mobile'] !== '' ? $data['mobile'] : null;
         $ip = $this->clientIp();
-        $ua = isset($_SERVER['HTTP_USER_AGENT'])
-            ? mb_substr((string) $_SERVER['HTTP_USER_AGENT'], 0, 512)
-            : null;
+        $ua = null;
+        if (isset($_SERVER['HTTP_USER_AGENT'])) {
+            $rawUa = (string) $_SERVER['HTTP_USER_AGENT'];
+            $ua = function_exists('mb_substr')
+                ? mb_substr($rawUa, 0, 512)
+                : substr($rawUa, 0, 512);
+        }
 
         $stmt->execute([
             ':first_name' => $data['firstName'],
@@ -120,22 +145,10 @@ final class ContactService
 
     private function clientIp(): ?string
     {
-        $candidates = [
-            $_SERVER['HTTP_CF_CONNECTING_IP'] ?? null,
-            $_SERVER['HTTP_X_FORWARDED_FOR'] ?? null,
-            $_SERVER['REMOTE_ADDR'] ?? null,
-        ];
-
-        foreach ($candidates as $value) {
-            if (!is_string($value) || $value === '') {
-                continue;
-            }
-
-            // X-Forwarded-For may be a list: client, proxy1, proxy2
-            $ip = trim(explode(',', $value)[0]);
-            if (filter_var($ip, FILTER_VALIDATE_IP)) {
-                return $ip;
-            }
+        // Prefer REMOTE_ADDR; forwarded headers are spoofable without a trusted proxy.
+        $remote = $_SERVER['REMOTE_ADDR'] ?? null;
+        if (is_string($remote) && filter_var($remote, FILTER_VALIDATE_IP)) {
+            return $remote;
         }
 
         return null;

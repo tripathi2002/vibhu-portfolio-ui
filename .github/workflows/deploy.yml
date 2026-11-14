@@ -15,14 +15,22 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
           local-dir: ./
           server-dir: sit/portfolio/api/v1/
           exclude: |
-            **/.git*
-            **/.git*/**
+            **/.git
+            **/.git/**
+            **/.gitignore
+            **/.gitattributes
             **/.github/**
             **/config.php
             **/node_modules/**
             **/deploy/**
+            **/wp-content/**
+            **/wp-admin/**
+            **/wp-includes/**
+            **/storage/rate-limit/*.json
             README.md
             LICENSE
+            .htaccess-server

@@ -5,7 +5,10 @@
  * config.php is gitignored and excluded from FTP deploy so Hostinger settings stay intact.
  *
  * Hostinger: hPanel → Databases → MySQL Databases
- * Use the created DB name / user / password below.
+ * Use a DB user with INSERT (and SELECT if needed) only — not CREATE.
+ * Run sql/schema.sql once in phpMyAdmin before going live.
+ *
+ * Local Angular: add http://localhost:4200 to allowed_origins in your local config.php only.
  */
 return [
     'db' => [
@@ -17,11 +20,11 @@ return [
         'charset' => 'utf8mb4',
     ],
     'allowed_origins' => [
-        'http://localhost:4200',
-        'https://localhost:4200',
         'https://vibhu.pro',
-        'http://vibhu.pro',
         'https://www.vibhu.pro',
-        'http://www.vibhu.pro',
+    ],
+    'rate_limit' => [
+        'max_attempts' => 8,
+        'window_seconds' => 600,
     ],
 ];

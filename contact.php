@@ -5,6 +5,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/src/Response.php';
 require_once __DIR__ . '/src/Cors.php';
 require_once __DIR__ . '/src/Database.php';
+require_once __DIR__ . '/src/RateLimiter.php';
 require_once __DIR__ . '/src/ContactService.php';
 
 $configFile = is_file(__DIR__ . '/config.php')
@@ -37,11 +38,6 @@ if ($method !== 'POST') {
 $raw = file_get_contents('php://input') ?: '';
 $payload = json_decode($raw, true);
 
-if (!is_array($payload)) {
-    // Support classic form posts as a fallback.
-    $payload = $_POST;
-}
-
 if (!is_array($payload) || $payload === []) {
     Response::json([
         'ok' => false,
@@ -49,12 +45,30 @@ if (!is_array($payload) || $payload === []) {
     ], 400);
 }
 
+$ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+$rate = $config['rate_limit'] ?? [];
+$maxAttempts = (int) ($rate['max_attempts'] ?? 8);
+$windowSeconds = (int) ($rate['window_seconds'] ?? 600);
+$storageDir = __DIR__ . '/storage/rate-limit';
+
+$limiter = new RateLimiter($storageDir, $maxAttempts, $windowSeconds);
+if ($limiter->tooManyAttempts('contact:' . $ip)) {
+    Response::json([
+        'ok' => false,
+        'message' => 'Too many requests. Please try again later.',
+    ], 429);
+}
+
 $service = new ContactService($config);
 $result = $service->handle($payload);
 
 if (!($result['ok'] ?? false)) {
-    $status = isset($result['errors']) ? 422 : 500;
-    Response::json($result, $status);
+    if (isset($result['errors'])) {
+        $result['message'] = $result['message'] ?? 'Please fix the highlighted fields.';
+        Response::json($result, 422);
+    }
+
+    Response::json($result, 500);
 }
 
 Response::json($result, 200);

@@ -9,6 +9,9 @@ Options -Indexes
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    # Block direct web access to app internals (path relative to this directory)
+    RewriteRule ^(src|sql|storage)(/|$) - [F,L]
+
     # Pretty route: /contact -> contact.php
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
